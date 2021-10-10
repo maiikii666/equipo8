@@ -1,85 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador - Crear editar materias</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+{% extends "baseAdmin.html" %}
 
-</head>
-<body class="bodyPrincipales">
+{% block section %}
 
-    <aside class="asidePrincipal">
-        <div class="asideSuperior">
-            <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
-            <h1 class="usuarioAside">Admin</h1>
-            <button class="button">Salir</button>
-        </div>
-        <div class="asideInferior">
-            <h1>PANEL DE NAVEGACION</h1>
+<section class="sectionPrincipales">
 
-            <a href="">Administrar materias</a>
-            <a href="">Buscar/Editar Información</a>
-            <a href="">Registro</a>
-
-            <button class="button">FAQ</button>
-            <button class="button">Reportar Error</button>
-        </div>
-    
-    </aside>
-
-    <div>
-        <header class="headerPrincipales">
-            <div class="tituloHeader">
-                <h1>PLATAFORMA SURCO - ADMIN</h1>
+    <h1>CREAR MATERIA</h1>
+    <form action="" name="formularioCrearMateria" id="formularioCrearMateria">
+        <div class="contenedorSuperiorCrearMateria">
+            <div class="contenedorIzquierdoSuperiorCrearMateria">
+                <p>Nombre del Curso</p>
+                <input type="text" name="nombreCursoCrearMateria" placeholder="Fisica I" class="pConBorde">
+                <p>Cupo</p>
+                <input type="text" name="cupoCursoCrearMateria" placeholder="35" class="pConBorde">
+                <p>Profesor</p>
+                <input type="text" name="profesorCrearMateria" placeholder="Profesor" class="pConBorde">
             </div>
-            <img src="url_for('static', filename='img/logodef.png')" alt="logo universidad" class="imgPrincipales">
-        </header>
+            <div class="contenedorDerechoSuperiorCrearMateria">
+                <p>Toda materia incluye cuatro actividades mínimas, para editar la ponderación o agregar actividades, ver la pantalla de CREAR/EDITAR actividades.</p>
 
-        <section class="sectionPrincipales">
+            </div>
+        </div>
+        <div class="contenedorInferiorCrearMateria">
+            <div class="contenedorInferiorIzquierdoCrearMateria">
+                <p>Inscribir Estudiantes</p>
+                <input type="text" name="EstudiantesInscritosCrearMateria" class="ListadoEstudiantesCrearMateria">
+            </div>
+            <div class="contenedorInferiorCentralCrearMateria">
+                <button class="buttonPequeño"><<</button>
+                <button class="buttonPequeño">x</button>
+            </div>
+            <div class="contenedorInferiorDerechoCrearMateria">
+                <p>Listado Estudiantes</p>
+                <input type="text" name="ListadoEstudiantesCrearMateria" class="ListadoEstudiantesCrearMateria">
+            </div>
+        </div>
+        <input type="submit" name="crearMateria" id="botonCrearMateria" class="buttonPequeño" value="Crear"">
+        
+    </form>
 
-            <h1>CREAR MATERIA</h1>
-            <form action="" name="formularioCrearMateria" id="formularioCrearMateria">
-                <div class="contenedorSuperiorCrearMateria">
-                    <div class="contenedorIzquierdoSuperiorCrearMateria">
-                        <p>Nombre del Curso</p>
-                        <input type="text" name="nombreCursoCrearMateria" placeholder="Fisica I" class="pConBorde">
-                        <p>Cupo</p>
-                        <input type="text" name="cupoCursoCrearMateria" placeholder="35" class="pConBorde">
-                        <p>Profesor</p>
-                        <input type="text" name="profesorCrearMateria" placeholder="Profesor" class="pConBorde">
-                    </div>
-                    <div class="contenedorDerechoSuperiorCrearMateria">
-                        <p>Toda materia incluye cuatro actividades mínimas, para editar la ponderación o agregar actividades, ver la pantalla de CREAR/EDITAR actividades.</p>
+    
 
-                    </div>
-                </div>
-                <div class="contenedorInferiorCrearMateria">
-                    <div class="contenedorInferiorIzquierdoCrearMateria">
-                        <p>Inscribir Estudiantes</p>
-                        <input type="text" name="EstudiantesInscritosCrearMateria" class="ListadoEstudiantesCrearMateria">
-                    </div>
-                    <div class="contenedorInferiorCentralCrearMateria">
-                        <button class="buttonPequeño"><<</button>
-                        <button class="buttonPequeño">x</button>
-                    </div>
-                    <div class="contenedorInferiorDerechoCrearMateria">
-                        <p>Listado Estudiantes</p>
-                        <input type="text" name="ListadoEstudiantesCrearMateria" class="ListadoEstudiantesCrearMateria">
-                    </div>
-                </div>
-                <input type="submit" name="crearMateria" id="botonCrearMateria" class="buttonPequeño" value="Crear"">
-                
-            </form>
+</section>
 
-            
 
-        </section>
-    </div>
-</body>
-</html>
+
+{% endblock %}

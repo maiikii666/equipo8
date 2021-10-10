@@ -1,97 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informacion del Estudiante</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+{% extends "baseEstudiante.html" %}
 
-</head>
-<body class="bodyPrincipales">
+{% block section %}
 
-    <aside class="asidePrincipal">
-        <div class="asideSuperior">
-            <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
-            <h1 class="usuarioAside">Estudiante</h1>
-            <button class="button">Salir</button>
-        </div>
-        <div class="asideInferior">
-            <h1>PANEL DE NAVEGACION</h1>
 
-            <a href="">Ver Notas</a>
-            <a href="">Ver información</a>
+<section class="sectionPrincipales">
 
-            <button class="button">FAQ</button>
-            <button class="button">Reportar Error</button>
-        </div>
-    
-    </aside>
+    <h1>INFORMACIÓN DE ESTUDIANTE</h1>
 
-    <div>
-        <header class="headerPrincipales">
-            <div class="tituloHeader">
-                <h1>PLATAFORMA SURCO - ESTUDIANTE</h1>
-            </div>
-            <img src="img/logodef.png" alt="logo universidad" class="imgPrincipales">
-        </header>
+    <div class="contenedorDetalleActividad">
 
-        <section class="sectionPrincipales">
-
-            <h1>INFORMACIÓN DE ESTUDIANTE</h1>
-
-            <div class="contenedorDetalleActividad">
-
-                <div class="contenedorDetalleActividadIzquierdo">
-                    <p>Nombred</p>
-                    <p class="pConBorde">Armando</p>
-                    <p>Apellido</p>
-                    <p class="pConBorde">Pereque</p>
-                    <p>Código</p>
-                    <p class="pConBorde">2001001</p>
-                    <p>Teléfono Móvil</p>
-                    <p class="pConBorde">+57 000 000 0000</p>
-                    <p>Correo</p>
-                    <p class="pConBorde">admando.pereque@estudiante.com</p>
-                    
-                    <p><button class="button">Editar</button></p>
-                    <p></p>
-                    <p><button class="button">GUARDAR</button></p>
-                    <p></p>
-                </div>
-                <div class="contenedorDetalleActividadDerecho">
-                    <p>Descripción:</p>
-                    
-                    <section>
-                        <div class="asideSuperior">
-                            <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
-                            <h1 class="usuarioAside">Cargar foto</h1>
-                            <button class="button">Subir</button>
-                        </div>
-                        </div>
-                        <form id="login" name="login">
-                            <div id="userName" class="camposLogin">
-                                <input type="text" name="userName" placeholder="Usuario" required>
-                            </div>
-                            <div id="password" class="camposLogin">
-                                <input type="password" name="password" placeholder="Contraseña" required>
-                                <input type="password" name="password" placeholder="Contraseña Nueva" required>
-                                <input type="password" name="password" placeholder="Confirmar Nueva" required>
-                            <div id="btnLogin">
-                                <input type="submit" value="CAMBIAR CONTRASEÑA" name="login">
-                            </div>
-                        </form>
-                    </section>
-
-                </div>
-            </div>
+        <div class="contenedorDetalleActividadIzquierdo">
+            <p>Nombred</p>
+            <p class="pConBorde">Armando</p>
+            <p>Apellido</p>
+            <p class="pConBorde">Pereque</p>
+            <p>Código</p>
+            <p class="pConBorde">2001001</p>
+            <p>Teléfono Móvil</p>
+            <p class="pConBorde">+57 000 000 0000</p>
+            <p>Correo</p>
+            <p class="pConBorde">admando.pereque@estudiante.com</p>
             
+            <p><button class="button">Editar</button></p>
+            <p></p>
+            <p><button class="button">GUARDAR</button></p>
+            <p></p>
+        </div>
+        <div class="contenedorDetalleActividadDerecho">
+            <p>Descripción:</p>
+            
+            <section>
+                <div class="asideSuperior">
+                    <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
+                    <h1 class="usuarioAside">Cargar foto</h1>
+                    <button class="button">Subir</button>
+                </div>
+                </div>
+                <form id="login" name="login">
+                    <div id="userName" class="camposLogin">
+                        <input type="text" name="userName" placeholder="Usuario" required>
+                    </div>
+                    <div id="password" class="camposLogin">
+                        <input type="password" name="password" placeholder="Contraseña" required>
+                        <input type="password" name="password" placeholder="Contraseña Nueva" required>
+                        <input type="password" name="password" placeholder="Confirmar Nueva" required>
+                    <div id="btnLogin">
+                        <input type="submit" value="CAMBIAR CONTRASEÑA" name="login">
+                    </div>
+                </form>
+            </section>
 
-        </section>
+        </div>
     </div>
-</body>
-</html>
+    
+
+</section>
+
+
+
+{% endblock %}

@@ -1,119 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesor - Crear actividad</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+{% extends "baseProfesor.html" %}
 
-</head>
-<body class="bodyPrincipales">
+{% block section %}
 
-    <aside class="asidePrincipal">
-        <div class="asideSuperior">
-            <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
-            <h1 class="usuarioAside">Profesor</h1>
-            <button class="button">Salir</button>
-        </div>
-        <div class="asideInferior">
-            <h1>PANEL DE NAVEGACION</h1>
+<section class="sectionPrincipales">
 
-            <a href="">Administrar materias</a>
-            <a href="">Ver Información</a>
+    <h1>CREAR/EDITAR ACTIVIDADES</h1>
+    <form action="" name="formularioEditarActividad" id="formularioEditarActividad">
 
-            <button class="button">FAQ</button>
-            <button class="button">Reportar Error</button>
-        </div>
-    
-    </aside>
-
-    <div>
-        <header class="headerPrincipales">
-            <div class="tituloHeader">
-                <h1>PLATAFORMA SURCO - PROFESOR</h1>
+        <div class="cajaSuperiorEditarActiv">
+            <div class="contenedorDescripcionMateria">
+                <p>Nombre de Curso</p>
+                <p class="pConBorde">Fisica I</p>
+                <p>Cupo</p>
+                <p class="pConBorde">35</p>
+                <p>Profesor</p>
+                <p class="pConBorde">35</p>
             </div>
-            <img src="url_for('static', filename='img/logodef.png')" alt="logo universidad" class="imgPrincipales">
-        </header>
+            <div class="contenedorActividadesEditar">
+                <div></div>
+                <input type="text" name="actividadUno" placeholder="Actividad1" class="pConBorde">
+                <input type="text" name="actividadDos" placeholder="Actividad2" class="pConBorde">
+                <input type="text" name="actividadTres" placeholder="Actividad3" class="pConBorde">
+                <input type="text" name="actividadCuatro" placeholder="Actividad4" class="pConBorde">
+            </div>
+            <div class="contenedorNotasEditar">
+                <p>PORCENTAJE DE NOTA FINAL</p>
+                <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
+                <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
+                <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
+                <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
+            </div>
+            <div class="contenedorVerDetallesEditar">
+                <p>Ver detalles</p>
+                <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                
+            </div>
+            <div class="contenedorFechaEntregaEditar">
+                <p>Fecha de entrega</p>
+                <input type="text" name="fechaEntregaActividadUnoEditar" placeholder="05/11/2021" class="pConBorde">
+                <input type="text" name="fechaEntregaActividadDosEditar" placeholder="05/11/2021" class="pConBorde">
+                <input type="text" name="fechaEntregaActividadTresEditar" placeholder="05/11/2021" class="pConBorde">
+                <input type="text" name="fechaEntregaActividadCuatroEditar" placeholder="05/11/2021" class="pConBorde">
+            </div>
+        </div>
+        <div class="cajaMediaEditarActiv">
+            <input type="submit" class="buttonPequeño" value="Editar" id="botonEditarActividad">
+            <button class="buttonPequeño">+</button>
+            <p>Total</p>
+            <p class="pConBorde">100%</p>
+            <div></div>
+        </div>
+    </form>
 
-        <section class="sectionPrincipales">
+    <form action="" name="formularioCrearActividad" id="formularioCrearActividad">
+        <div class="cajaInferiorEditarActiv">
+            <div class="contenedorIzquierdoCajaInferiorEditarActiv">
+                <p>Nombre de Actividad</p>
+                <input type="text" class="pConBorde" name="nombreCursoCrear">
+                <p>Fecha de Inicio</p>
+                <input type="text" name="fechaInicioCursoCrear" class="pConBorde">
+                <p>Fecha de Cierre</p>
+                <input type="text" name="fechaCierreCursoCrear" class="pConBorde">
+            </div>
+            <div class="contenedorDerechoCajaInferiorEditarActiv">
+                <p>Descripción</p>
+                <input type="text" name="descripcionCursoCrear" class="pConBorde" id="cajaDescripcionEditar">
+            </div>
+        </div>
+        <input type="submit" class="buttonPequeño" value="Guardar" id="botonGuardarCrearActividad">
+    </form>
 
-            <h1>CREAR/EDITAR ACTIVIDADES</h1>
-            <form action="" name="formularioEditarActividad" id="formularioEditarActividad">
+    
 
-                <div class="cajaSuperiorEditarActiv">
-                    <div class="contenedorDescripcionMateria">
-                        <p>Nombre de Curso</p>
-                        <p class="pConBorde">Fisica I</p>
-                        <p>Cupo</p>
-                        <p class="pConBorde">35</p>
-                        <p>Profesor</p>
-                        <p class="pConBorde">35</p>
-                    </div>
-                    <div class="contenedorActividadesEditar">
-                        <div></div>
-                        <input type="text" name="actividadUno" placeholder="Actividad1" class="pConBorde">
-                        <input type="text" name="actividadDos" placeholder="Actividad2" class="pConBorde">
-                        <input type="text" name="actividadTres" placeholder="Actividad3" class="pConBorde">
-                        <input type="text" name="actividadCuatro" placeholder="Actividad4" class="pConBorde">
-                    </div>
-                    <div class="contenedorNotasEditar">
-                        <p>PORCENTAJE DE NOTA FINAL</p>
-                        <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
-                        <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
-                        <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
-                        <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
-                    </div>
-                    <div class="contenedorVerDetallesEditar">
-                        <p>Ver detalles</p>
-                        <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                        <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                        <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                        <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                        
-                    </div>
-                    <div class="contenedorFechaEntregaEditar">
-                        <p>Fecha de entrega</p>
-                        <input type="text" name="fechaEntregaActividadUnoEditar" placeholder="05/11/2021" class="pConBorde">
-                        <input type="text" name="fechaEntregaActividadDosEditar" placeholder="05/11/2021" class="pConBorde">
-                        <input type="text" name="fechaEntregaActividadTresEditar" placeholder="05/11/2021" class="pConBorde">
-                        <input type="text" name="fechaEntregaActividadCuatroEditar" placeholder="05/11/2021" class="pConBorde">
-                    </div>
-                </div>
-                <div class="cajaMediaEditarActiv">
-                    <input type="submit" class="buttonPequeño" value="Editar" id="botonEditarActividad">
-                    <button class="buttonPequeño">+</button>
-                    <p>Total</p>
-                    <p class="pConBorde">100%</p>
-                    <div></div>
-                </div>
-            </form>
+</section>
 
-            <form action="" name="formularioCrearActividad" id="formularioCrearActividad">
-                <div class="cajaInferiorEditarActiv">
-                    <div class="contenedorIzquierdoCajaInferiorEditarActiv">
-                        <p>Nombre de Actividad</p>
-                        <input type="text" class="pConBorde" name="nombreCursoCrear">
-                        <p>Fecha de Inicio</p>
-                        <input type="text" name="fechaInicioCursoCrear" class="pConBorde">
-                        <p>Fecha de Cierre</p>
-                        <input type="text" name="fechaCierreCursoCrear" class="pConBorde">
-                    </div>
-                    <div class="contenedorDerechoCajaInferiorEditarActiv">
-                        <p>Descripción</p>
-                        <input type="text" name="descripcionCursoCrear" class="pConBorde" id="cajaDescripcionEditar">
-                    </div>
-                </div>
-                <input type="submit" class="buttonPequeño" value="Guardar" id="botonGuardarCrearActividad">
-            </form>
 
-            
-
-        </section>
-    </div>
-</body>
-</html>
+{% endblock %}

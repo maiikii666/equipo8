@@ -1,104 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retroalimentación para Estudiante</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+{% extends "baseEstudiante.html" %}
 
-</head>
-<body class="bodyPrincipales">
+{% block section %}
 
-    <aside class="asidePrincipal">
-        <div class="asideSuperior">
-            <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
-            <h1 class="usuarioAside">Estudiante</h1>
-            <button class="button">Salir</button>
-        </div>
-        <div class="asideInferior">
-            <h1>PANEL DE NAVEGACION</h1>
+<section class="sectionPrincipales">
 
-            <a href="">Ver Notas</a>
-            <a href="">Ver información</a>
+    <h1>RETROALIMENTACIÓN</h1>
 
-            <button class="button">FAQ</button>
-            <button class="button">Reportar Error</button>
-        </div>
-    
-    </aside>
+    <div class="contenedorDetalleActividad">
 
-    <div>
-        <header class="headerPrincipales">
-            <div class="tituloHeader">
-                <h1>PLATAFORMA SURCO - ESTUDIANTE</h1>
-            </div>
-            <img src="url_for('static', filename='img/logodef.png')" alt="logo universidad" class="imgPrincipales">
-        </header>
-
-        <section class="sectionPrincipales">
-
-            <h1>RETROALIMENTACIÓN</h1>
-
-            <div class="contenedorDetalleActividad">
-
-                <div class="contenedorDetalleActividadIzquierdo">
-                    
-                    <div class="cajaSuperiorEditarActiv">
-                        
-                        <div class="contenedorActividadesEditar">
-                            <div></div>
-                            <input type="text" name="actividadUno" placeholder="Actividad1" class="pConBorde">
-                            <input type="text" name="actividadDos" placeholder="Actividad2" class="pConBorde">
-                            <input type="text" name="actividadTres" placeholder="Actividad3" class="pConBorde">
-                            <input type="text" name="actividadCuatro" placeholder="Actividad4" class="pConBorde">
-                        </div>
-                        <div class="contenedorNotasEditar">
-                            <p>PORCENTAJE DE NOTA FINAL</p>
-                            <p>25</p>
-                            <p>25</p>
-                            <p>25</p>
-                            <p>25</p>
-                        </div>
-                        <div class="contenedorVerDetallesEditar">
-                            <p>Ver detalles</p>
-                            <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                            <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                            <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                            <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                            
-                        </div>
-    
-                        <div class="contenedorVerDetallesEditar">
-                            <p>RETROALIMENTACIÓN FINAL</p>
-                            <p>
-                            <p>El estudiante aprobó satisfactoriamente la materia. Entregó todo, felicitaciones.</p></p>
-                        </div>
-                            <div class="contenedorDerechoCajaInferiorEditarActiv">
-
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                                                              
-                                <h1>DEFINITIVA</h1>
-                                <p>
-                                <h1>5.0<p><p></p>
-                                </p>
-                                </h1>
-                                </p>
-                            </div>
-                            
-                    </div>
-
-                </div>
-                
-            </div>
+        <div class="contenedorDetalleActividadIzquierdo">
             
-        </section>
+            <div class="cajaSuperiorEditarActiv">
+                
+                <div class="contenedorActividadesEditar">
+                    <div></div>
+                    <input type="text" name="actividadUno" placeholder="Actividad1" class="pConBorde">
+                    <input type="text" name="actividadDos" placeholder="Actividad2" class="pConBorde">
+                    <input type="text" name="actividadTres" placeholder="Actividad3" class="pConBorde">
+                    <input type="text" name="actividadCuatro" placeholder="Actividad4" class="pConBorde">
+                </div>
+                <div class="contenedorNotasEditar">
+                    <p>PORCENTAJE DE NOTA FINAL</p>
+                    <p>25</p>
+                    <p>25</p>
+                    <p>25</p>
+                    <p>25</p>
+                </div>
+                <div class="contenedorVerDetallesEditar">
+                    <p>Ver detalles</p>
+                    <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                    <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                    <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                    <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                    
+                </div>
+
+                <div class="contenedorVerDetallesEditar">
+                    <p>RETROALIMENTACIÓN FINAL</p>
+                    <p>
+                    <p>El estudiante aprobó satisfactoriamente la materia. Entregó todo, felicitaciones.</p></p>
+                </div>
+                    <div class="contenedorDerechoCajaInferiorEditarActiv">
+
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                                                        
+                        <h1>DEFINITIVA</h1>
+                        <p>
+                        <h1>5.0<p><p></p>
+                        </p>
+                        </h1>
+                        </p>
+                    </div>
+                    
+            </div>
+
+        </div>
+        
     </div>
-</body>
-</html>
+    
+</section>
+
+
+
+{% endblock %}

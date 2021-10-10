@@ -1,132 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrar cursos - Profesor</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+{% extends "baseProfesor.html" %}
 
-</head>
-<body class="bodyPrincipales">
+{% block section %}
 
-    <aside class="asidePrincipal">
-        <div class="asideSuperior">
-            <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
-            <h1 class="usuarioAside">Profesor</h1>
-            <button class="button">Salir</button>
-        </div>
-        <div class="asideInferior">
-            <h1>PANEL DE NAVEGACION</h1>
 
-            <a href="">Administrar materias</a>
-            <a href="">Ver Información</a>
+<section class="sectionPrincipales">
 
-            <button class="button">FAQ</button>
-            <button class="button">Reportar Error</button>
-        </div>
+    <h1>ADMINISTRAR CURSOS</h1>
+
+    <h1 class="buttonPequeño">MATERIAS</h1>
     
-    </aside>
-
-    <div>
-        <header class="headerPrincipales">
-            <div class="tituloHeader">
-                <h1>PLATAFORMA SURCO - PROFESOR</h1>
+    <div class="contenedorAdminCursosProfe">
+        <div class="contenedorMateriaAdminCursosProfe">
+            <div class="columnaUnoContMaterAdminCursosProfe">
+                <p class="pConBorde">Fisica 1</p>
+                <p>Estudiante 1</p>
+                <p>Estudiante 2</p>                       
             </div>
-            <img src="url_for('static', filename='img/logodef.png')" alt="logo universidad" class="imgPrincipales">
-        </header>
+            <div class="columnaDosContMaterAdminCursosProfe">
+                <p class="pConBorde">Actividad 1</p>
+                <p>Nota</p>
+                <p>Retroalimentación</p>
+            </div>
+            <div class="columnaTresContMaterAdminCursosProfe">
+                <p class="pConBorde">Actividad 2</p>
+                <p>Nota</p>
+                <p>Retroalimentación</p>
 
-        <section class="sectionPrincipales">
-
-            <h1>ADMINISTRAR CURSOS</h1>
-
-            <h1 class="buttonPequeño">MATERIAS</h1>
-            
-            <div class="contenedorAdminCursosProfe">
-                <div class="contenedorMateriaAdminCursosProfe">
-                    <div class="columnaUnoContMaterAdminCursosProfe">
-                        <p class="pConBorde">Fisica 1</p>
-                        <p>Estudiante 1</p>
-                        <p>Estudiante 2</p>                       
-                    </div>
-                    <div class="columnaDosContMaterAdminCursosProfe">
-                        <p class="pConBorde">Actividad 1</p>
-                        <p>Nota</p>
-                        <p>Retroalimentación</p>
-                    </div>
-                    <div class="columnaTresContMaterAdminCursosProfe">
-                        <p class="pConBorde">Actividad 2</p>
-                        <p>Nota</p>
-                        <p>Retroalimentación</p>
-
-                    </div>
-                    <div class="columnaCuatroContMaterAdminCursosProfe">
-                        <p>Nota Definitiva</p>
-                        <p>Retroalimentación</p>
-
-                    </div>
-
-
-                </div>
-                <div class="contenedorMateriaAdminCursosProfe">
-                    <div class="columnaUnoContMaterAdminCursosProfe">
-                        <p class="pConBorde">Fisica 2</p>
-                        <p>Estudiante 1</p>
-                        <p>Estudiante 2</p> 
-                    </div>
-                    <div class="columnaDosContMaterAdminCursosProfe">
-                        <p class="pConBorde">Actividad 1</p>
-                        <p>Nota</p>
-                        <p>Retroalimentación</p>
-
-                    </div>
-                    <div class="columnaTresContMaterAdminCursosProfe">
-                        <p class="pConBorde">Actividad 2</p>
-                        <p>Nota</p>
-                        <p>Retroalimentación</p>
-
-                    </div>
-                    <div class="columnaCuatroContMaterAdminCursosProfe">
-                        <p>Nota Definitiva</p>
-                        <p>Retroalimentación</p>
-
-                    </div>
-
-
-                </div>
-                <div class="contenedorMateriaAdminCursosProfe">
-                    <div class="columnaUnoContMaterAdminCursosProfe">
-                        <p class="pConBorde">Fisica 3</p>
-                        <p>Estudiante 1</p>
-                        <p>Estudiante 2</p>
-                    </div>
-                    <div class="columnaDosContMaterAdminCursosProfe">
-                        <p class="pConBorde">Actividad 1</p>
-                        <p>Nota</p>
-                        <p>Retroalimentación</p>
-
-                    </div>
-                    <div class="columnaTresContMaterAdminCursosProfe">
-                        <p class="pConBorde">Actividad 2</p>
-                        <p>Nota</p>
-                        <p>Retroalimentación</p>
-
-                    </div>
-                    <div class="columnaCuatroContMaterAdminCursosProfe">
-                        <p>Nota Definitiva</p>
-                        <p>Retroalimentación</p>
-                    </div>
-
-
-                </div>
+            </div>
+            <div class="columnaCuatroContMaterAdminCursosProfe">
+                <p>Nota Definitiva</p>
+                <p>Retroalimentación</p>
 
             </div>
 
-        </section>
+
+        </div>
+        <div class="contenedorMateriaAdminCursosProfe">
+            <div class="columnaUnoContMaterAdminCursosProfe">
+                <p class="pConBorde">Fisica 2</p>
+                <p>Estudiante 1</p>
+                <p>Estudiante 2</p> 
+            </div>
+            <div class="columnaDosContMaterAdminCursosProfe">
+                <p class="pConBorde">Actividad 1</p>
+                <p>Nota</p>
+                <p>Retroalimentación</p>
+
+            </div>
+            <div class="columnaTresContMaterAdminCursosProfe">
+                <p class="pConBorde">Actividad 2</p>
+                <p>Nota</p>
+                <p>Retroalimentación</p>
+
+            </div>
+            <div class="columnaCuatroContMaterAdminCursosProfe">
+                <p>Nota Definitiva</p>
+                <p>Retroalimentación</p>
+
+            </div>
+
+
+        </div>
+        <div class="contenedorMateriaAdminCursosProfe">
+            <div class="columnaUnoContMaterAdminCursosProfe">
+                <p class="pConBorde">Fisica 3</p>
+                <p>Estudiante 1</p>
+                <p>Estudiante 2</p>
+            </div>
+            <div class="columnaDosContMaterAdminCursosProfe">
+                <p class="pConBorde">Actividad 1</p>
+                <p>Nota</p>
+                <p>Retroalimentación</p>
+
+            </div>
+            <div class="columnaTresContMaterAdminCursosProfe">
+                <p class="pConBorde">Actividad 2</p>
+                <p>Nota</p>
+                <p>Retroalimentación</p>
+
+            </div>
+            <div class="columnaCuatroContMaterAdminCursosProfe">
+                <p>Nota Definitiva</p>
+                <p>Retroalimentación</p>
+            </div>
+
+
+        </div>
+
     </div>
-</body>
-</html>
+
+</section>
+
+
+{% endblock %}

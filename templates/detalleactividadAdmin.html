@@ -1,75 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle Actividad</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+{% extends "baseAdmin.html" %}
 
-</head>
-<body class="bodyPrincipales">
+{% block section %}
 
-    <aside class="asidePrincipal">
-        <div class="asideSuperior">
-            <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
-            <h1 class="usuarioAside">Admin</h1>
-            <button class="button">Salir</button>
-        </div>
-        <div class="asideInferior">
-            <h1>PANEL DE NAVEGACION</h1>
+<section class="sectionPrincipales">
 
-            <a href="">Administrar materias</a>
-            <a href="">Buscar/Editar Información</a>
-            <a href="">Registro</a>
-
-            <button class="button">FAQ</button>
-            <button class="button">Reportar Error</button>
-        </div>
+    <h1>DETALLE DE ACTIVIDAD</h1>
     
-    </aside>
+    <div class="contenedorDetalleActividad">
 
-    <div>
-        <header class="headerPrincipales">
-            <div class="tituloHeader">
-                <h1>PLATAFORMA SURCO - ADMIN</h1>
-            </div>
-            <img src="url_for('static', filename='img/logodef.png')" alt="logo universidad" class="imgPrincipales">
-        </header>
+        <div class="contenedorDetalleActividadIzquierdo">
+            <p>Nombre de Actividad</p>
+            <p class="pConBorde">Actividad1</p>
+            <p>Materia</p>
+            <p class="pConBorde">Física 1</p>
+            <p>Profesor</p>
+            <p class="pConBorde">Nombre Profesor</p>
+            <p>Fecha de Inicio</p>
+            <p class="pConBorde">13/03/2021</p>
+            <p>Fecha de Cierre</p>
+            <p class="pConBorde">05/11/2021</p>
+            <p>Correo de entrega</p>
+            <p class="pConBorde">correo@profesor.com</p>
 
-        <section class="sectionPrincipales">
+        </div>
+        <div class="contenedorDetalleActividadDerecho">
+            <p>Descripción:</p>
+            <p class="pConBorde">El estudiante debe entregar módulo 1 resuelto en formato pdf al correo</p>
 
-            <h1>DETALLE DE ACTIVIDAD</h1>
-            
-            <div class="contenedorDetalleActividad">
-
-                <div class="contenedorDetalleActividadIzquierdo">
-                    <p>Nombre de Actividad</p>
-                    <p class="pConBorde">Actividad1</p>
-                    <p>Materia</p>
-                    <p class="pConBorde">Física 1</p>
-                    <p>Profesor</p>
-                    <p class="pConBorde">Nombre Profesor</p>
-                    <p>Fecha de Inicio</p>
-                    <p class="pConBorde">13/03/2021</p>
-                    <p>Fecha de Cierre</p>
-                    <p class="pConBorde">05/11/2021</p>
-                    <p>Correo de entrega</p>
-                    <p class="pConBorde">correo@profesor.com</p>
-
-                </div>
-                <div class="contenedorDetalleActividadDerecho">
-                    <p>Descripción:</p>
-                    <p class="pConBorde">El estudiante debe entregar módulo 1 resuelto en formato pdf al correo</p>
-
-                </div>
-            </div>
-
-        </section>
+        </div>
     </div>
-</body>
-</html>
+
+</section>
+
+
+
+{% endblock %}

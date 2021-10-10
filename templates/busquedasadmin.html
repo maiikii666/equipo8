@@ -1,169 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador - Búsquedas</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+{% extends "baseAdmin.html" %}
 
-</head>
-<body class="bodyPrincipales">
+{% block section %}
 
-    <aside class="asidePrincipal">
-        <div class="asideSuperior">
-            <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
-            <h1 class="usuarioAside">Admin</h1>
-            <button class="button">Salir</button>
-        </div>
-        <div class="asideInferior">
-            <h1>PANEL DE NAVEGACION</h1>
-
-            <a href="">Administrar materias</a>
-            <a href="">Buscar/Editar Información</a>
-            <a href="">Registro</a>
-
-            <button class="button">FAQ</button>
-            <button class="button">Reportar Error</button>
-        </div>
+<section class="sectionPrincipales">
     
-    </aside>
+    <h1>VER REGISTRO</h1>
+    <p></p>
+    
+    <div class="contenedorAdminCursosProfe">
+        <div class="contenedorMateriaAdminCursosProfe">
 
-    <div>
-        <header class="headerPrincipales">
-            <div class="tituloHeader">
-                <h1>PLATAFORMA SURCO - ADMIN</h1>
-            </div>
-            <img src="url_for('static', filename='img/logodef.png')" alt="logo universidad" class="imgPrincipales">
-        </header>
-
-        <section class="sectionPrincipales">
             
-            <h1>VER REGISTRO</h1>
-            <p></p>
+        <table class="default">
+
+            <tr>
+        
+            <td><p class="pConBorde">Rol</p></td>
+        
+            <td><p class="pConBorde">Nombre</p></td>
+        
+            <td><p class="pConBorde">Apellido</p></td>
+
+            <td><p class="pConBorde">Código</p></td>
+            <td><p class="pConBorde">Teléfono</p></td>
+            <td><p class="pConBorde">Correo</p></td>
+        
+            </tr>
+        
+            <tr>
+        
+                <td>Estudiante</td>
             
-            <div class="contenedorAdminCursosProfe">
-                <div class="contenedorMateriaAdminCursosProfe">
-
-                    
-                <table class="default">
-
-                    <tr>
-                
-                    <td><p class="pConBorde">Rol</p></td>
-                
-                    <td><p class="pConBorde">Nombre</p></td>
-                
-                    <td><p class="pConBorde">Apellido</p></td>
-
-                    <td><p class="pConBorde">Código</p></td>
-                    <td><p class="pConBorde">Teléfono</p></td>
-                    <td><p class="pConBorde">Correo</p></td>
-                
-                    </tr>
-                
-                    <tr>
-                
-                        <td>Estudiante</td>
-                    
-                        <td>Armando</td>
-                    
-                        <td>Pereque</td>
-                        <td>2001001</td>
-                    
-                        <td>57 000 000 0000</td>
-                    
-                        <td>armando.pereque@estudiante.com</td>
-                
-                    </tr>
-
-                    <tr>
-                
-                        <td>Estudiante</td>
-                    
-                        <td>Armando</td>
-                    
-                        <td>Pereque</td>
-                        <td>2001001</td>
-                    
-                        <td>57 000 000 0000</td>
-                    
-                        <td>armando.pereque@estudiante.com</td>
-                    
-                    </tr>
-
-                    <tr>
-                
-                        <td>Estudiante</td>
-                    
-                        <td>Armando</td>
-                    
-                        <td>Pereque</td>
-                        <td>2001001</td>
-                    
-                        <td>57 000 000 0000</td>
-                    
-                        <td>armando.pereque@estudiante.com</td>
-                    
-                    </tr>
-
-                    <tr>
-                
-                        <td>Profesor</td>
-                    
-                        <td>Elkin</td>
-                    
-                        <td>Tosueño</td>
-                        <td>0000001</td>
-                    
-                        <td>57 000 000 0000</td>
-                    
-                        <td>elkin.tosueño@estudiante.com</td>
-                    
-                    </tr>
-                    <tr>
-                
-                        <td>Profesor</td>
-                    
-                        <td>Elkin</td>
-                    
-                        <td>Tosueño</td>
-                        <td>0000001</td>
-                    
-                        <td>57 000 000 0000</td>
-                    
-                        <td>elkin.tosueño@estudiante.com</td>
-                    
-                    </tr>
-                
-                </table>
-
-            </div>
-            <div class="contenedorMateriaAdminCursosProfe">
-                
-                <p class="pConBorde"></p>
-                
-                <p><button class="button">BUSCAR</button></p>
-                
-                <p><button class="button">EDITAR</button></p>
-                <p></p>
-                <p></p>
-                <p></p>
-            </div>
-                <div class="contenedorMateriaAdminCursosProfe">
-                       
-                <p><button class="button">EDITAR NOTAS COHORTE</button></p>
-                <p><img src="url_for('static', filename='img/candadoCerrado.png')" alt="Candado cerrado" class="imgEstadoMateria"></p>
-                
-                </div>
-                
-        </div>
+                <td>Armando</td>
             
-        </section>
+                <td>Pereque</td>
+                <td>2001001</td>
+            
+                <td>57 000 000 0000</td>
+            
+                <td>armando.pereque@estudiante.com</td>
+        
+            </tr>
+
+            <tr>
+        
+                <td>Estudiante</td>
+            
+                <td>Armando</td>
+            
+                <td>Pereque</td>
+                <td>2001001</td>
+            
+                <td>57 000 000 0000</td>
+            
+                <td>armando.pereque@estudiante.com</td>
+            
+            </tr>
+
+            <tr>
+        
+                <td>Estudiante</td>
+            
+                <td>Armando</td>
+            
+                <td>Pereque</td>
+                <td>2001001</td>
+            
+                <td>57 000 000 0000</td>
+            
+                <td>armando.pereque@estudiante.com</td>
+            
+            </tr>
+
+            <tr>
+        
+                <td>Profesor</td>
+            
+                <td>Elkin</td>
+            
+                <td>Tosueño</td>
+                <td>0000001</td>
+            
+                <td>57 000 000 0000</td>
+            
+                <td>elkin.tosueño@estudiante.com</td>
+            
+            </tr>
+            <tr>
+        
+                <td>Profesor</td>
+            
+                <td>Elkin</td>
+            
+                <td>Tosueño</td>
+                <td>0000001</td>
+            
+                <td>57 000 000 0000</td>
+            
+                <td>elkin.tosueño@estudiante.com</td>
+            
+            </tr>
+        
+        </table>
+
     </div>
-</body>
-</html>
+    <div class="contenedorMateriaAdminCursosProfe">
+        
+        <p class="pConBorde"></p>
+        
+        <p><button class="button">BUSCAR</button></p>
+        
+        <p><button class="button">EDITAR</button></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+        <div class="contenedorMateriaAdminCursosProfe">
+                
+        <p><button class="button">EDITAR NOTAS COHORTE</button></p>
+        <p><img src="url_for('static', filename='img/candadoCerrado.png')" alt="Candado cerrado" class="imgEstadoMateria"></p>
+        
+        </div>
+        
+</div>
+    
+</section>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %} Administrador {% endblock %}
+
+{% block content %}
+
+
+<body class="bodyPrincipales">
+
+    <aside class="asidePrincipal">
+        <div class="asideSuperior">
+            <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="fotoUsuario" class="fotoUsuario">
+            <h1 class="usuarioAside">Admin</h1>
+            <button class="button">Salir</button>
+        </div>
+        <div class="asideInferior">
+            <h1>PANEL DE NAVEGACION</h1>
+
+            <a href="">Administrar materias</a>
+            <a href="">Buscar/Editar Información</a>
+            <a href="">Registro</a>
+
+            <button class="button">FAQ</button>
+            <button class="button">Reportar Error</button>
+        </div>
+    
+    </aside>
+
+    <div>
+        <header class="headerPrincipales">
+            <div class="tituloHeader">
+                <h1>PLATAFORMA SURCO - ADMIN</h1>
+            </div>
+            <img src="{{url_for('static', filename='img/logodef.png')}}" alt="logo universidad" class="imgPrincipales">
+        </header>
+
+        {% block section %}
+
+        {% endblock %}
+
+
+    </div>
+</body>
+
+
+
+
+{% endblock %}

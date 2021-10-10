@@ -1,101 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Notas - Estudiante</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+{% extends "baseEstudiante.html" %}
 
-</head>
-<body class="bodyPrincipales">
+{% block section %}
 
-    <aside class="asidePrincipal">
-        <div class="asideSuperior">
-            <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
-            <h1 class="usuarioAside">Estudiante</h1>
-            <button class="button">Salir</button>
-        </div>
-        <div class="asideInferior">
-            <h1>PANEL DE NAVEGACION</h1>
+<section class="sectionPrincipales">
 
-            <a href="">Ver Notas</a>
-            <a href="">Ver información</a>
+    <h1>VER NOTAS</h1>
 
-            <button class="button">FAQ</button>
-            <button class="button">Reportar Error</button>
-        </div>
-    
-    </aside>
+    <h1 class="buttonPequeño">MATERIAS</h1>
 
-    <div>
-        <header class="headerPrincipales">
-            <div class="tituloHeader">
-                <h1>PLATAFORMA SURCO - ESTUDIANTE</h1>
-            </div>
-            <img src="url_for('static', filename='img/logodef.png')" alt="logo universidad" class="imgPrincipales">
-        </header>
-
-        <section class="sectionPrincipales">
-
-            <h1>VER NOTAS</h1>
-
-            <h1 class="buttonPequeño">MATERIAS</h1>
-
-            <div class="cajaMaterias">
-                <div class="contenedorMateria">
-                    
-                    <div class="materia">
-                        <p>FÍSICA I</p>
-                        <ul class="listaEstudiantes">
-                            <li>Actividad 1</li>
-                            <li>Actividad 2</li>
-                            <li>Actividad 3</li>
-                        </ul>
-                        
-                    </div>
-                    <div class="materia">
-                        <p>NOTAS</p>
-                        <ul class="listaEstudiantes">
-                            <li>5.0</li>
-                            <li>4.5</li>
-                            <li>4.5</li>
-                        </ul>
-                    </div>
-                    <div class="materia">
-                        <p>OBSERVACIONES</p>
-                        <ul class="listaEstudiantes">
-                            <li>Entregó Tarde</li>
-                            <li>Hizo Copia</li>
-                            <li>Bien desarrollado</li>
-                        </ul>
-                    </div>
-
-                    <div class="estado">
-                        <p>Estado</p>
-                        <img src="url_for('static', filename='img/candadoCerrado.png')" alt="Candado cerrado" class="imgEstadoMateria">
-                        
-
-                    </div>
-                    <div class="profesor">
-                        <p>PROMEDIO FINAL</p>
-                        <p>5.0</p>
-                        <p><button class="buttonPequeño">VER RETROALIMENTACIÓN FINAL</button></p>
-                        
-                        
-                    </div>
-                </div>
+    <div class="cajaMaterias">
+        <div class="contenedorMateria">
+            
+            <div class="materia">
+                <p>FÍSICA I</p>
+                <ul class="listaEstudiantes">
+                    <li>Actividad 1</li>
+                    <li>Actividad 2</li>
+                    <li>Actividad 3</li>
+                </ul>
                 
- 
-
             </div>
+            <div class="materia">
+                <p>NOTAS</p>
+                <ul class="listaEstudiantes">
+                    <li>5.0</li>
+                    <li>4.5</li>
+                    <li>4.5</li>
+                </ul>
+            </div>
+            <div class="materia">
+                <p>OBSERVACIONES</p>
+                <ul class="listaEstudiantes">
+                    <li>Entregó Tarde</li>
+                    <li>Hizo Copia</li>
+                    <li>Bien desarrollado</li>
+                </ul>
+            </div>
+
+            <div class="estado">
+                <p>Estado</p>
+                <img src="url_for('static', filename='img/candadoCerrado.png')" alt="Candado cerrado" class="imgEstadoMateria">
                 
 
-        </section>
+            </div>
+            <div class="profesor">
+                <p>PROMEDIO FINAL</p>
+                <p>5.0</p>
+                <p><button class="buttonPequeño">VER RETROALIMENTACIÓN FINAL</button></p>
+                
+                
+            </div>
+        </div>
+        
+
+
     </div>
-</body>
-</html>
+        
+
+</section>
+
+
+
+{% endblock %}
