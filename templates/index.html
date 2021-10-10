@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de administración de notas, Universidad Surcolombiana</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css' )}} " >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="url_for('static', filename='img/logodef.png')" alt="logo universidad">
+        </div>
+    </header>
+    <section>
+        <div id="captcha">
+        </div>
+        <form id="login" name="login">
+            <div id="userName" class="camposLogin">
+                <input type="text" name="userName" placeholder="Usuario" required>
+            </div>
+            <div id="password" class="camposLogin">
+                <input type="password" name="password" placeholder="Contraseña" required>
+            </div>
+            <div id="recordarContrasena">
+                <a href="">¿Olvidó su contraseña?</a>
+            </div>
+            <div id="btnLogin">
+                <input type="submit" value="INGRESAR" name="login">
+            </div>
+        </form>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+</html>

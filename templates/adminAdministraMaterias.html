@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Administrar materias</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+
+</head>
+<body class="bodyPrincipales">
+
+    <aside class="asidePrincipal">
+        <div class="asideSuperior">
+            <img src="url_for('static', filename='img/fofoUsuario.png')" alt="fotoUsuario" class="fotoUsuario">
+            <h1 class="usuarioAside">Admin</h1>
+            <button class="button">Salir</button>
+        </div>
+        <div class="asideInferior">
+            <h1>PANEL DE NAVEGACION</h1>
+
+            <a href="">Administrar materias</a>
+            <a href="">Buscar/Editar Información</a>
+            <a href="">Registro</a>
+
+            <button class="button">FAQ</button>
+            <button class="button">Reportar Error</button>
+        </div>
+    
+    </aside>
+
+    <div>
+        <header class="headerPrincipales">
+            <div class="tituloHeader">
+                <h1>PLATAFORMA SURCO - ADMIN</h1>
+            </div>
+            <img src="url_for('static', filename='img/logodef.png')" alt="logo universidad" class="imgPrincipales">
+        </header>
+
+        <section class="sectionPrincipales">
+            
+            <h1>ADMINISTRAR MATERIAS</h1>
+
+            <h1 class="buttonPequeño">MATERIAS</h1>
+
+            <div class="cajaMaterias">
+                <div class="contenedorMateria">
+                    <div class="materia">
+                        <p>Nombre Materia</p>
+                        <ul class="listaEstudiantes">
+                            <li>Estudiante1</li>
+                            <li>Estudiante2</li>
+                            <li>Estudiante2</li>
+                        </ul>
+                        <button class="buttonPequeño">Agregar Estudiante</button>
+                    </div>
+                    <div class="estado">
+                        <p>Estado</p>
+                        <img src="url_for('static', filename='img/candadoCerrado.png')" alt="Candado cerrado" class="imgEstadoMateria">
+                        <button class="buttonPequeño">Crear/Editar Actividades</button>
+                        <button class="buttonPequeño">Bloquear Notas</button>
+                    </div>
+                    <div class="profesor">
+                        <p>Profesor</p>
+                        <p>Nombre Profesor</p>
+                        <img src="url_for('static', filename='img/fofoUsuario.png')" alt="Imagen Profesor" class="imgPequenaProfesor">
+                        <button class="buttonPequeño">Asignar Profesor</button>
+                    </div>
+                </div>
+                <div class="contenedorMateria">
+                    <div class="materia">
+                        <p>Nombre Materia2</p>
+                        <ul class="listaEstudiantes">
+                            <li>Estudiante1</li>
+                            <li>Estudiante2</li>
+                            <li>Estudiante2</li>
+                        </ul>
+                        <button class="buttonPequeño">Agregar Estudiante</button>
+                    </div>
+                    <div class="estado">
+                        <p>Estado</p>
+                        <img src="url_for('static', filename='img/candadoCerrado.png')" alt="Candado cerrado" class="imgEstadoMateria">
+                        <button class="buttonPequeño">Crear/Editar Actividades</button>
+                        <button class="buttonPequeño">Bloquear Notas</button>
+                    </div>
+                    <div class="profesor">
+                        <p>Profesor</p>
+                        <p>Nombre Profesor</p>
+                        <img src="url_for('static', filename='img/fofoUsuario.png')" alt="Imagen Profesor" class="imgPequenaProfesor">
+                        <button class="buttonPequeño">Asignar Profesor</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+</body>
+</html>

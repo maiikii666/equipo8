@@ -1,0 +1,506 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(236, 235, 233);
+}
+
+/*INICIO QUE AFECTA EL LOGUIN*/
+
+body {
+    display: grid;
+    justify-content: center;
+}
+
+section {
+    padding: 25px;
+}
+
+form div{
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+form div input{
+    width: 100%;
+    text-align: center;
+    border: solid;
+    border-width: 5px;
+    border-color: #9E0000;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+}
+
+#logo {
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+#btnLogin input{
+    background-color: #9E0000;
+    color: white;
+}
+
+/*FIN DE LO QUE AFECTA EL LOGUIN*/
+
+
+/*""""""""""""""""""PAGINA BASE"""""""""""""""""""""""""*/
+
+
+h1 {
+    background-color: white;
+    font-weight: 400;
+    color: #9E0000;
+}
+
+
+.bodyPrincipales {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 30px;
+}
+
+/*INICIO HEADER*/
+
+.headerPrincipales {
+    display: flex;
+    height: 150px;
+    margin: 30px;
+    justify-content: flex-start;
+    margin-bottom: 60px;
+}
+
+.imgPrincipales{
+    display: flex;
+    margin: auto;
+}
+
+.tituloHeader {
+    border: solid;
+    border-color: #9E0000;
+    background-color: white;
+    width: 450px; 
+    font-size: 0.7em;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    margin-top: 80px;
+}
+
+/*FIN HEADER*/
+
+/*INICIO ASIDE*/
+
+aside {
+
+    width: 270px; /*Cambiar para responsive*/
+    min-width: 270px;
+}
+
+.asideSuperior {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    background-color: white;
+    border: solid;
+    border-color: 10px;
+}
+
+.asideSuperior img {
+    width: 200px;
+    height: 200px;
+    margin-top: 30px;
+}
+
+.button {
+    width: 133%;
+    background-color: #9E0000;
+    color: white;
+    font-size: 2em;
+    padding: 5px;
+}
+
+.asideInferior {
+    border: solid;
+    border-color: 10px;
+    margin-top: 20px;
+    background-color: white;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+}
+
+.asideInferior button {
+    width: 100%;
+}
+
+aside a {
+    color: #9E0000;
+    text-decoration: none;
+    justify-self: right;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.asideInferior button {
+    margin-top: 25px;
+}
+
+/*FIN ASIDE*/
+
+
+/*INICIO SECCION*/
+
+
+.sectionPrincipales {
+    border: solid;
+    border-color: black;
+    width: 900px; /*Cambiar para responsive*/
+    margin: 30px; 
+    background-color: white;
+}
+
+/*CUANDO LLEVA FORMULARIO*/
+
+.sectionPrincipales form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 8fr 1fr;
+    background-color: white;
+    color: #9E0000;
+}
+
+#izquierdaFormularioRegistro, #derechaFormularioRegistro {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: white;
+    align-items: center;
+}
+
+#derechaFormularioRegistro {
+    height: 50px;
+    align-self: center;
+}
+
+p, input{
+    background-color: white;
+    margin: 20px;
+}
+
+.inputRadio {
+    height: 20px;
+}
+
+.botonRadio {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+    align-items: center;
+    background-color: white;
+}
+
+/*FIN CUANDO LLEVA FORMULARIO*/
+
+
+/*FIN SECCION*/
+
+/*ventana materias admin*/
+
+.buttonPequeño {
+    background-color: #9E0000;
+    color: white;
+    font-size: 2em;
+    padding: 5px;
+    font-size: 1.0em;
+}
+
+.cajaMaterias {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    background-color: white;
+}
+
+.contenedorMateria {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: white;
+}
+
+.materia {
+    display: grid;
+    grid-template-rows: 2fr 4fr 1fr;
+    margin: auto;
+    background-color: white;
+}
+
+.estado {
+    display: grid;
+    grid-template-rows: 2fr 3fr 1fr 1fr;
+    margin: auto;
+    background-color: white;
+}
+
+.profesor {
+    display: grid;
+    grid-template-rows: 2fr 2fr 3fr 1fr;
+    margin: auto;
+    background-color: white;
+}
+
+li {
+    list-style-type: none;
+    background-color: white;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.imgEstadoMateria {
+    background-color: white;
+    height: 120px;
+    width: 80px;
+    margin:auto;
+}
+
+.imgPequenaProfesor {
+    background-color: white;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+}
+
+
+
+/*fin ventana materias admin*/
+
+/*INICIO VENTANA CREAR/EDITAR ACTIVIDADES*/
+
+.pConBorde {
+    border: solid;
+    border-color: #9E0000;
+    height: 25px;
+    padding-left: 5px;
+}
+
+#formularioEditarActividad{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.cajaSuperiorEditarActiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: white;
+    margin: auto;
+
+}
+
+.contenedorDescripcionMateria {
+    display: grid;
+    grid-template-rows: .2fr .2fr .2fr .2fr .2fr .2fr;
+    margin: auto;
+    align-items: center;
+    background-color: white;
+    border: solid;
+    border-color: #9E0000;
+}
+
+.contenedorActividadesEditar, .contenedorNotasEditar, .contenedorVerDetallesEditar {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    background-color: white;
+}
+
+.contenedorActividadesEditar div {
+    background-color: white;
+}
+
+.contenedorVerDetallesEditar img {
+    background-color: white;
+}
+
+.contenedorFechaEntregaEditar {
+    background-color: white;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.cajaMediaEditarActiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: white;
+}
+
+#botonEditarActividad {
+    margin: auto;
+}
+
+.cajaMediaEditarActiv button {
+    width: 80px;
+    height: 40px;
+    justify-self: center;
+    align-self: center;
+}
+
+.cajaMediaEditarActiv div {
+    background-color: white;
+}
+
+.cajaSuperiorEditarActiv .pConBorde {
+    margin-left: 20px;
+    align-self: center;
+    justify-self: center;
+    width: 130px;
+}
+
+.imagenBlocEditar {
+    width: 50px;
+    margin: auto;
+}
+
+#formularioCrearActividad {
+    display: flex;
+    flex-direction: column;
+}
+
+#botonGuardarCrearActividad {
+    width: 150px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.cajaInferiorEditarActiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+}
+
+.contenedorIzquierdoCajaInferiorEditarActiv {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    padding-right: 0px;
+}
+
+.contenedorDerechoCajaInferiorEditarActiv {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1f;
+}
+
+#cajaDescripcionEditar {
+    height: 100%;
+}
+
+/*FIN VENTANA CREAR/EDITAR ACTIVIDADES*/
+
+
+/*Inicio CREAR MATERIA*/
+
+#formularioCrearMateria {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.contenedorSuperiorCrearMateria {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.contenedorIzquierdoSuperiorCrearMateria {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.contenedorDerechoSuperiorCrearMateria {
+    background-color: white;
+}
+
+.contenedorInferiorCrearMateria {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    background-color: white;
+}
+
+.contenedorInferiorCentralCrearMateria {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin: auto;
+    padding: 30px;
+}
+
+.contenedorInferiorIzquierdoCrearMateria, .contenedorInferiorCentralCrearMateria, .contenedorInferiorDerechoCrearMateria {
+    background-color: white;
+}
+
+.ListadoEstudiantesCrearMateria {
+    height: 400px;
+}
+
+
+
+/*FIN CREAR MATERIA*/
+
+
+/* INICIO DETALLE ACTIVIDAD*/
+
+.contenedorDetalleActividad {
+    display: grid;
+    background-color: white;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contenedorDetalleActividadIzquierdo {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.contenedorDetalleActividadDerecho {
+    background-color: white;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+.contenedorDetalleActividadDerecho .pConBorde {
+    height: 90%;
+}
+
+
+/*FIN DETALLE ACTIVIDAD*/
+
+
+/*inicio administrar cursos PROFESORES*/
+
+.contenedorAdminCursosProfe {
+    background-color: white;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.contenedorMateriaAdminCursosProfe {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.columnaUnoContMaterAdminCursosProfe, .columnaDosContMaterAdminCursosProfe, .columnaTresContMaterAdminCursosProfe, .columnaCuatroContMaterAdminCursosProfe {
+    background-color: white;      
+}
+
+
+/*FIN administrar cursos PROFESORES*/
+
+
