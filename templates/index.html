@@ -14,18 +14,19 @@
     <section>
         <div id="captcha">
         </div>
-        <form id="login" name="login">
+        <form id="login" name="login" method="post" action="">
+            {{form.hidden_tag()}}
             <div id="userName" class="camposLogin">
-                <input type="text" name="userName" placeholder="Usuario" required>
+                {{form.usuario(size=30, placeholder="Usuario")}}
             </div>
             <div id="password" class="camposLogin">
-                <input type="password" name="password" placeholder="Contraseña" required>
+                {{form.contrasena(size=30, placeholder="Contraseña")}}
             </div>
             <div id="recordarContrasena">
                 <a href="">¿Olvidó su contraseña?</a>
             </div>
             <div id="btnLogin">
-                <input type="submit" value="INGRESAR" name="login">
+                {{form.enviar()}}
             </div>
         </form>
     </section>

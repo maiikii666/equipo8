@@ -1,10 +1,18 @@
 from flask import blueprints, render_template, request
+from flask.helpers import flash, url_for
+from werkzeug.utils import redirect
+from forms import *
 
 main= blueprints.Blueprint("main", __name__)
 
-@main.route("/")
+@main.route("/", methods=["GET", "POST"])
 def inicio():
-    return render_template("index.html")
+    form = FormInicio()
+    if (form.validate_on_submit()):
+        return ("GRACIAS POR INICIAR SESION")
+        ### Se dirige a la ventana de acuerdo al ROL
+    return render_template("index.html", form=form)
+
 
 @main.route("/adminAdministraMaterias/")
 def adminAdministraMaterias():
@@ -14,8 +22,13 @@ def adminAdministraMaterias():
 def administrarCursosProfesor():
     return render_template("administrarCursosProfesor.html")
     
-@main.route("/adminRegistro/")
+    
+@main.route("/adminRegistro/", methods=["GET", "POST"])
 def adminRegistro():
+    form = FormRegistrarUsuario()
+    if (form.validate_on_submit()):
+        return ("SE REGISTRO EL USUARIO")
+        ### Regresa a la misma ventana con alerta, usuario registrado
     return render_template("adminRegistro.html")
 
 @main.route("/busquedasadmin/")
@@ -46,11 +59,11 @@ def detalleActividadEstudiante():
 def detalleactividadProfesor():
     return render_template("detalleactividadProfesor.html")
 
-@main.route("/informacionestudiante/")###ERROR EN LA IMAGEN FOTO USUARIO
+@main.route("/informacionestudiante/")
 def informacionestudiante():
     return render_template("informacionestudiante.html")
 
-@main.route("/informacionprofesores/")###ERROR EN LA IMAGEN FOTO USUARIO
+@main.route("/informacionprofesores/")
 def informacionprofesores():
     return render_template("informacionprofesores.html")
 
@@ -58,6 +71,6 @@ def informacionprofesores():
 def notasestudiante():
     return render_template("notasestudiante.html")
 
-@main.route("/retroalimentacionestudiante/")####ERROR EN LA IMAGEN DETALLES
+@main.route("/retroalimentacionestudiante/")
 def retroalimentacionestudiante():
     return render_template("retroalimentacionestudiante.html")
