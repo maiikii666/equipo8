@@ -225,6 +225,15 @@ p, input{
     font-size: 1.0em;
 }
 
+a .buttonPequeño {
+    background-color: #9E0000;
+    color: white;
+    font-size: 2em;
+    padding: 5px;
+    font-size: 1.0em;
+    width: 100%;
+}
+
 .cajaMaterias {
     display: grid;
     grid-template-rows: 1fr 1fr;
