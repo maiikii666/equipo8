@@ -7,23 +7,23 @@
 
     <h1>REGISTRAR USUARIO</h1>
 
-    <form action="" name="formularioRegistro">
+    <form action="" name="formularioRegistro" method="post">
+        {{form.hidden_tag()}}
         <div id="izquierdaFormularioRegistro">
-            <p>Nombre</p><input type="text" name="nombre">
-            <p>Apellido</p><input type="text" name="apellido">
-            <p>Código</p><input type="text" name="codigo">
-            <p>Teléfono/Móvil</p><input type="text" name="telefono">
-            <p>Correo</p><input type="email" name="correo">
-            <p>Rol</p>
+            <p>Nombre: </p> {{form.nombre(size=30)}}
+            <p>Apellido: </p> {{form.apellido(size=30)}}
+            <p>Código: </p> {{form.codigo(size=10)}}
+            <p>Teléfono/Móvil: </p> {{form.telefono(size=12)}}
+            <p>Correo: </p> {{form.correo()}}
+            <p>Rol: </p>
             <div class="botonRadio">
-                <p>Estudiante</p><input type="radio" name="rol" value="estudiante" class="inputRadio">
-                <p>Profesor</p><input type="radio" name="rol" value="profesor" class="inputRadio">
+                {{form.rol()}}
             </div>
             
         </div>
         <div id="derechaFormularioRegistro">
-            <p>Usuario</p><input type="text">
-            <p>Contraseña</p><input type="password">
+            <p>Usuario:</p>{{form.usuario(size=20)}}
+            <p>Contraseña:</p> {{form.contrasena(size=20)}}
 
         </div>
         <input type="submit" class="button" value="Registrar" id="botonRegistrar">

@@ -1,4 +1,4 @@
-from werkzeug.utils import validate_arguments
+from werkzeug.utils import validate_arguments, secure_filename
 from flask_wtf import Form
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, Optional
@@ -14,4 +14,6 @@ class FormRegistrarUsuario(Form):
     codigo= StringField("Codigo", validators=[DataRequired()])
     telefono= StringField("Telefono", validators=[DataRequired()])
     correo= StringField("Correo", validators=[DataRequired()])
-    rol= RadioField("Rol")
+    rol= RadioField("Rol", choices=[("value","Estudiante"), ("value_two","Profesor")])
+    usuario= StringField("Usuario", validators=[DataRequired()])
+    contrasena = PasswordField("Contrasena", validators=[DataRequired()])

@@ -22,14 +22,14 @@ def adminAdministraMaterias():
 def administrarCursosProfesor():
     return render_template("administrarCursosProfesor.html")
     
-    
+
 @main.route("/adminRegistro/", methods=["GET", "POST"])
 def adminRegistro():
     form = FormRegistrarUsuario()
     if (form.validate_on_submit()):
         return ("SE REGISTRO EL USUARIO")
-        ### Regresa a la misma ventana con alerta, usuario registrado
-    return render_template("adminRegistro.html")
+        ### Regresa a la misma ventana con alerta, usuario registrado y lo almacena en la base de datos SQLITE
+    return render_template("adminRegistro.html", form=form)
 
 @main.route("/busquedasadmin/")
 def busquedasadmin():

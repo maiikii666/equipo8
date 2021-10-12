@@ -190,15 +190,24 @@ p, input{
     margin: 20px;
 }
 
-.inputRadio {
-    height: 20px;
-}
 
-.botonRadio {
+#rol {
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     background-color: white;
+    height: 30px;
+}
+
+#rol li {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    height: 100%;
+}
+
+#rol label, .botonRadio {
+    background-color: white;
+    align-self: center;
 }
 
 /*FIN CUANDO LLEVA FORMULARIO*/
