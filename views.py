@@ -46,11 +46,11 @@ def detalleActividadEstudiante():
 def detalleactividadProfesor():
     return render_template("detalleactividadProfesor.html")
 
-@main.route("/informacionestudiante/")
+@main.route("/informacionestudiante/")###ERROR EN LA IMAGEN FOTO USUARIO
 def informacionestudiante():
     return render_template("informacionestudiante.html")
 
-@main.route("/informacionprofesores/")
+@main.route("/informacionprofesores/")###ERROR EN LA IMAGEN FOTO USUARIO
 def informacionprofesores():
     return render_template("informacionprofesores.html")
 
@@ -58,6 +58,6 @@ def informacionprofesores():
 def notasestudiante():
     return render_template("notasestudiante.html")
 
-@main.route("/retroalimentacionestudiante/")
+@main.route("/retroalimentacionestudiante/")####ERROR EN LA IMAGEN DETALLES
 def retroalimentacionestudiante():
     return render_template("retroalimentacionestudiante.html")
