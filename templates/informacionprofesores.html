@@ -6,35 +6,43 @@
 
     <h1>INFORMACIÓN DE PROFESOR</h1>
 
-    <div class="contenedorDetalleActividad">
+    <div class="contenedorInformacionProfesores">
 
-        <div class="contenedorDetalleActividadIzquierdo">
-            <p>Nombred</p>
-            <p class="pConBorde">Elkin</p>
-            <p>Apellido</p>
-            <p class="pConBorde">Tosueño</p>
-            <p>Código</p>
-            <p class="pConBorde">0001001</p>
-            <p>Teléfono Móvil</p>
-            <p class="pConBorde">+57 000 000 0000</p>
-            <p>Correo</p>
-            <p class="pConBorde">elkin.tosueño@profesor.com</p>
-            
-            <p><button class="button">Editar</button></p>
-            <p></p>
-            <p><button class="button">GUARDAR</button></p>
-            <p></p>
+        <div class="contenedorIzquierdoInformacionProfesores">
+            <div class="contenedorInfoProfesorEditable">
+                <p>Nombre</p>
+                <p class="pConBorde">Elkin</p>    
+            </div>
+            <div class="contenedorInfoProfesorEditable">
+                <p>Apellido</p>
+                <p class="pConBorde">Tosueño</p>
+            </div>
+            <div class="contenedorInfoProfesorEditable">
+                <p>Código</p>
+                <p class="pConBorde">0001001</p>
+            </div>
+            <div class="contenedorInfoProfesorEditable">
+                <p>Teléfono Móvil</p>
+                <p class="pConBorde">+57 000 000 0000</p>
+            </div>
+            <div class="contenedorInfoProfesorEditable">
+                <p>Correo</p>
+                <p class="pConBorde">elkin.tosueño@profesor.com</p>
+            </div>
+            <p><button class="buttonPequeño" id="editarInfo">Editar</button></p>
+            <p><button class="buttonPequeño" id="guardarInfo">GUARDAR</button></p>
+
         </div>
-        <div class="contenedorDetalleActividadDerecho">
-            <p>Descripción:</p>
-            
-            <section>
-                <div class="asideSuperior">
-                    <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="fotoUsuario" class="fotoUsuario">
-                    <h1 class="usuarioAside">Cargar foto</h1>
-                    <button class="button">Subir</button>
-                </div>
-                </div>
+        <div class="contenedorDerechoInformacionProfesores">
+        
+            <div class="contenedorFotoInformacion">
+
+                <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="fotoUsuario" class="fotoUsuario">
+                <h1 class="usuarioAside">Cargar foto</h1>
+                <button class="button">Subir</button>
+            </div>
+
+            <div class="contenedorCambiarContraseñaInfo">
                 <form id="login" name="login">
                     <div id="userName" class="camposLogin">
                         <input type="text" name="userName" placeholder="Usuario" required>
@@ -47,9 +55,9 @@
                         <input type="submit" value="CAMBIAR CONTRASEÑA" name="login">
                     </div>
                 </form>
-            </section>
-
+            </div>
         </div>
+                
     </div>
     
 

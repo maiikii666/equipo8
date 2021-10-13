@@ -545,3 +545,40 @@ li {
 /*FIN administrar cursos PROFESORES*/
 
 
+/*Inicio información profesores*/
+
+.contenedorInformacionProfesores {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+}
+
+.contenedorIzquierdoInformacionProfesores {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    background-color: white;
+}
+
+.contenedorInfoProfesorEditable {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+}
+
+#editarInfo, #guardarInfo {
+    width: 100%;
+}
+
+.contenedorDerechoInformacionProfesores {
+    display: grid;
+    grid-template-rows: 0.1fr 0.3fr;
+    background-color: white;
+}
+
+.contenedorFotoInformacion{
+    height: 200px;
+}
+
+
+/*fin información profesores*/
+
