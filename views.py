@@ -16,6 +16,7 @@ def inicio():
 
 @main.route("/adminAdministraMaterias/")
 def adminAdministraMaterias():
+###FALTA VISTA PARA AGREGAR ESTUDIANTE AL CURSO
     return render_template("adminAdministraMaterias.html")
 
 @main.route("/administrarCursosProfesor/")

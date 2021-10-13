@@ -288,6 +288,13 @@ li {
     margin: auto;
 }
 
+.botonCrearMateriaDesdeAdmin {
+    padding: 30px;
+    width: 70%;
+    background-color: white;
+    margin: auto;
+}
+
 
 
 /*fin ventana materias admin*/
@@ -299,6 +306,7 @@ li {
     border-color: #9E0000;
     height: 25px;
     padding-left: 5px;
+
 }
 
 #formularioEditarActividad{
@@ -518,6 +526,11 @@ li {
     background-color: white;      
 }
 
+.imagenDetalleActivBloc {
+    height: 100%;
+    background-color: white;
+
+}
 
 /*FIN administrar cursos PROFESORES*/
 
