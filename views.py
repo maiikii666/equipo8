@@ -9,7 +9,14 @@ main= blueprints.Blueprint("main", __name__)
 def inicio():
     form = FormInicio()
     if (form.validate_on_submit()):
-        return ("GRACIAS POR INICIAR SESION")
+        usuario=request.form["usuario"]
+        contrasena=request.form["contrasena"]
+        if(usuario == "Estudiante"):
+            return (informacionestudiante())
+        if(usuario == "Profesor"):
+            return (informacionprofesores())
+        if(usuario == "Administrador"):
+            return (adminRegistro())
         ### Se dirige a la ventana de acuerdo al ROL
     return render_template("index.html", form=form)
 
