@@ -1,3 +1,4 @@
+from types import MethodDescriptorType
 from flask import blueprints, render_template, request
 from flask.helpers import flash, url_for
 from werkzeug.utils import redirect
@@ -43,9 +44,13 @@ def adminRegistro():
 def busquedasadmin():
     return render_template("busquedasadmin.html")
 
-@main.route("/creareditaractiv/")
+@main.route("/creareditaractiv/", methods=["GET", "POST"])
 def creareditaractiv():
-    return render_template("creareditaractiv.html")
+    form = FormCrearActividad()
+    if (form.validate_on_submit()):
+        return ("ACTIVIDAD CREADA")
+        ### Se debe actualizar la lista con las actividades, y salir alerta de actividad creada
+    return render_template("creareditaractiv.html", form=form)
 
 @main.route("/creareditaractivProfesor/")
 def creareditaractivProfesor():

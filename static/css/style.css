@@ -210,6 +210,11 @@ p, input{
     align-self: center;
 }
 
+#botonRegistrar input{
+    background-color: #9E0000;
+    color: white;
+}
+
 /*FIN CUANDO LLEVA FORMULARIO*/
 
 
@@ -421,6 +426,11 @@ li {
 
 #cajaDescripcionEditar {
     height: 100%;
+}
+
+#descripcion {
+    height: 160px;
+    justify-content: center;
 }
 
 /*FIN VENTANA CREAR/EDITAR ACTIVIDADES*/
