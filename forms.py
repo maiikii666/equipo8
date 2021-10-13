@@ -1,6 +1,7 @@
 from werkzeug.utils import validate_arguments, secure_filename
 from flask_wtf import Form
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
+from wtforms.fields.core import DateField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, Optional
 
 class FormInicio(Form):
@@ -17,3 +18,11 @@ class FormRegistrarUsuario(Form):
     rol= RadioField("Rol", choices=[("value","Estudiante"), ("value_two","Profesor")])
     usuario= StringField("Usuario", validators=[DataRequired()])
     contrasena = PasswordField("Contrasena", validators=[DataRequired()])
+    crear= SubmitField("Crear")
+
+class FormCrearActividad(Form):
+    nombreActividad= StringField("Nombre", validators=[DataRequired()])
+    fechaDeInicio= DateField("Inicio", validators=[DataRequired()])
+    fechaDeCierre= DateField("Cierre", validators=[DataRequired()])
+    descripcion= StringField("Descripción", validators=[DataRequired()])
+    enviar= SubmitField("Guardar")
