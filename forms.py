@@ -26,3 +26,16 @@ class FormCrearActividad(Form):
     fechaDeCierre= DateField("Cierre", validators=[DataRequired()])
     descripcion= StringField("Descripción", validators=[DataRequired()])
     enviar= SubmitField("Guardar")
+
+class FormActualizar(Form):
+    nombre= StringField("Nombre", validators=[DataRequired()])
+    apellido= StringField("Apellido", validators=[DataRequired()])
+    telefono= StringField("Telefono", validators=[DataRequired()])
+    correo= StringField("Correo", validators=[DataRequired()])
+    guardar= SubmitField("Guardar")
+
+class FormCambiarContrasena(Form):
+    contrasena= PasswordField("Contraseña", validators=[DataRequired()])
+    contrasenaNueva= PasswordField("Contraseña", validators=[DataRequired()])
+    contrasenaConfirmada= PasswordField("Contraseña", validators=[DataRequired()])
+    cambiar= SubmitField("Cambiar Contraseña")

@@ -7,15 +7,16 @@
     <h1>INFORMACIÓN DE PROFESOR</h1>
 
     <div class="contenedorInformacionProfesores">
-
+        <form action="" name="formularioEditarInfoProfesor" method="post">
+            {{form.hidden_tag()}}
         <div class="contenedorIzquierdoInformacionProfesores">
             <div class="contenedorInfoProfesorEditable">
                 <p>Nombre</p>
-                <p class="pConBorde">Elkin</p>    
+                 {{form.nombre}}   
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Apellido</p>
-                <p class="pConBorde">Tosueño</p>
+                {{form.apellido}}
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Código</p>
@@ -23,39 +24,44 @@
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Teléfono Móvil</p>
-                <p class="pConBorde">+57 000 000 0000</p>
+                 {{form.telefono}} 
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Correo</p>
-                <p class="pConBorde">elkin.tosueño@profesor.com</p>
+                 {{form.correo}} 
             </div>
-            <p><button class="buttonPequeño" id="editarInfo">Editar</button></p>
-            <p><button class="buttonPequeño" id="guardarInfo">GUARDAR</button></p>
+            <div class="guardarActualizarInfo">
+                {{form.guardar}}
+            </div>
+            
 
         </div>
+        </form>
+
+
         <div class="contenedorDerechoInformacionProfesores">
         
             <div class="contenedorFotoInformacion">
 
                 <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="fotoUsuario" class="fotoUsuario">
-                <h1 class="usuarioAside">Cargar foto</h1>
-                <button class="button">Subir</button>
+                <button class="buttonPequeño">Cargar foto</button>
             </div>
 
-            <div class="contenedorCambiarContraseñaInfo">
-                <form id="login" name="login">
-                    <div id="userName" class="camposLogin">
-                        <input type="text" name="userName" placeholder="Usuario" required>
+            <form id="cambioContra" name="login" >
+                {{formu.hidden_tag()}}
+                <div class="contenedorCambiarContraseñaInfo">
+                    <div id="userNameCambioContra" class="camposLoginCambioContra">
+                        <p>Usuario</p>
                     </div>
-                    <div id="password" class="camposLogin">
-                        <input type="password" name="password" placeholder="Contraseña" required>
-                        <input type="password" name="password" placeholder="Contraseña Nueva" required>
-                        <input type="password" name="password" placeholder="Confirmar Nueva" required>
-                    <div id="btnLogin">
-                        <input type="submit" value="CAMBIAR CONTRASEÑA" name="login">
+                    <div id="passwordCambioContra" class="camposLoginCambioContra">
+                        {{formu.contrasena}}
+                        {{formu.contrasenaNueva}}
+                        {{formu.contrasenaConfirmada}}
+                    <div id="btnLoginCambioContra">
+                        {{formu.cambiar}}
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
                 
     </div>

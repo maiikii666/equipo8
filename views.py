@@ -76,9 +76,17 @@ def detalleactividadProfesor():
 def informacionestudiante():
     return render_template("informacionestudiante.html")
 
-@main.route("/informacionprofesores/")
+@main.route("/informacionprofesores/", methods=["GET", "POST"])
 def informacionprofesores():
-    return render_template("informacionprofesores.html")
+    ### Si llega con GET muestra la información de la BD
+    ### Si llega con POST actualiza la información en la BD
+    form= FormActualizar()
+    if (form.validate_on_submit()):
+        return ("INFORMACIÓN ACTUALIZADA")
+    formu= FormCambiarContrasena()
+    if (formu.validate_on_submit()):
+        return ("CONTRASEÑA CAMBIADA")
+    return render_template("informacionprofesores.html", form=form, formu=formu)
 
 @main.route("/notasestudiante/")
 def notasestudiante():
