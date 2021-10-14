@@ -32,10 +32,10 @@
             </div>
             <div class="contenedorVerDetallesEditar">
                 <p>Ver detalles</p>
-                <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                <a href=""><img src="url_for('static', filename='img/imagenBloc.png')" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a href=""><img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a href=""><img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a href=""><img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a href=""><img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
                 
             </div>
             <div class="contenedorFechaEntregaEditar">
@@ -56,18 +56,19 @@
     </form>
 
     <form action="" name="formularioCrearActividad" id="formularioCrearActividad">
+        {{form.hidden_tag()}}
         <div class="cajaInferiorEditarActiv">
             <div class="contenedorIzquierdoCajaInferiorEditarActiv">
                 <p>Nombre de Actividad</p>
-                <input type="text" class="pConBorde" name="nombreCursoCrear">
+                {{form.nombreActividad}}
                 <p>Fecha de Inicio</p>
-                <input type="text" name="fechaInicioCursoCrear" class="pConBorde">
+                {{form.fechaDeInicio}}
                 <p>Fecha de Cierre</p>
-                <input type="text" name="fechaCierreCursoCrear" class="pConBorde">
+                {{form.fechaDeCierre}}
             </div>
             <div class="contenedorDerechoCajaInferiorEditarActiv">
                 <p>Descripción</p>
-                <input type="text" name="descripcionCursoCrear" class="pConBorde" id="cajaDescripcionEditar">
+                    {{form.descripcion}}
             </div>
         </div>
         <input type="submit" class="buttonPequeño" value="Guardar" id="botonGuardarCrearActividad">

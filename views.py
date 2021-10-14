@@ -52,9 +52,13 @@ def creareditaractiv():
         ### Se debe actualizar la lista con las actividades, y salir alerta de actividad creada
     return render_template("creareditaractiv.html", form=form)
 
-@main.route("/creareditaractivProfesor/")
+@main.route("/creareditaractivProfesor/", methods=["GET", "POST"])
 def creareditaractivProfesor():
-    return render_template("creareditaractivProfesor.html")
+    form = FormCrearActividad()
+    if (form.validate_on_submit()):
+        return ("ACTIVIDAD CREADA")
+        ###Debe retornar alerta de actividad creada
+    return render_template("creareditaractivProfesor.html",)
 
 @main.route("/crearMateria/")
 def crearMateria():
@@ -72,9 +76,17 @@ def detalleActividadEstudiante():
 def detalleactividadProfesor():
     return render_template("detalleactividadProfesor.html")
 
-@main.route("/informacionestudiante/")
+@main.route("/informacionestudiante/", methods=["GET", "POST"])
 def informacionestudiante():
-    return render_template("informacionestudiante.html")
+    ### Si llega con GET muestra la información de la BD
+    ### Si llega con POST actualiza la información en la BD
+    form= FormActualizar()
+    if (form.validate_on_submit()):
+        return ("INFORMACIÓN ACTUALIZADA")
+    formu= FormCambiarContrasena()
+    if (formu.validate_on_submit()):
+        return ("CONTRASEÑA CAMBIADA")
+    return render_template("informacionestudiante.html", form=form, formu=formu)
 
 @main.route("/informacionprofesores/", methods=["GET", "POST"])
 def informacionprofesores():

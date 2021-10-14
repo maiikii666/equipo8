@@ -7,50 +7,64 @@
 
     <h1>INFORMACIÓN DE ESTUDIANTE</h1>
 
-    <div class="contenedorDetalleActividad">
-
-        <div class="contenedorDetalleActividadIzquierdo">
-            <p>Nombred</p>
-            <p class="pConBorde">Armando</p>
-            <p>Apellido</p>
-            <p class="pConBorde">Pereque</p>
-            <p>Código</p>
-            <p class="pConBorde">2001001</p>
-            <p>Teléfono Móvil</p>
-            <p class="pConBorde">+57 000 000 0000</p>
-            <p>Correo</p>
-            <p class="pConBorde">admando.pereque@estudiante.com</p>
+    <div class="contenedorInformacionProfesores">
+        <form action="" name="formularioEditarInfoProfesor" method="post">
+            {{form.hidden_tag()}}
+        <div class="contenedorIzquierdoInformacionProfesores">
+            <div class="contenedorInfoProfesorEditable">
+                <p>Nombre</p>
+                 {{form.nombre}}   
+            </div>
+            <div class="contenedorInfoProfesorEditable">
+                <p>Apellido</p>
+                {{form.apellido}}
+            </div>
+            <div class="contenedorInfoProfesorEditable">
+                <p>Código</p>
+                <p class="pConBorde">0001001</p>
+            </div>
+            <div class="contenedorInfoProfesorEditable">
+                <p>Teléfono Móvil</p>
+                 {{form.telefono}} 
+            </div>
+            <div class="contenedorInfoProfesorEditable">
+                <p>Correo</p>
+                 {{form.correo}} 
+            </div>
+            <div class="guardarActualizarInfo">
+                {{form.guardar}}
+            </div>
             
-            <p><button class="button">Editar</button></p>
-            <p></p>
-            <p><button class="button">GUARDAR</button></p>
-            <p></p>
-        </div>
-        <div class="contenedorDetalleActividadDerecho">
-            <p>Descripción:</p>
-            
-            <section>
-                <div class="asideSuperior">
-                    <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="fotoUsuario" class="fotoUsuario">
-                    <h1 class="usuarioAside">Cargar foto</h1>
-                    <button class="button">Subir</button>
-                </div>
-                </div>
-                <form id="login" name="login">
-                    <div id="userName" class="camposLogin">
-                        <input type="text" name="userName" placeholder="Usuario" required>
-                    </div>
-                    <div id="password" class="camposLogin">
-                        <input type="password" name="password" placeholder="Contraseña" required>
-                        <input type="password" name="password" placeholder="Contraseña Nueva" required>
-                        <input type="password" name="password" placeholder="Confirmar Nueva" required>
-                    <div id="btnLogin">
-                        <input type="submit" value="CAMBIAR CONTRASEÑA" name="login">
-                    </div>
-                </form>
-            </section>
 
         </div>
+        </form>
+
+
+        <div class="contenedorDerechoInformacionProfesores">
+        
+            <div class="contenedorFotoInformacion">
+
+                <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="fotoUsuario" class="fotoUsuario">
+                <button class="buttonPequeño">Cargar foto</button>
+            </div>
+
+            <form id="cambioContra" name="login" >
+                {{formu.hidden_tag()}}
+                <div class="contenedorCambiarContraseñaInfo">
+                    <div id="userNameCambioContra" class="camposLoginCambioContra">
+                        <p>Usuario</p>
+                    </div>
+                    <div id="passwordCambioContra" class="camposLoginCambioContra">
+                        {{formu.contrasena}}
+                        {{formu.contrasenaNueva}}
+                        {{formu.contrasenaConfirmada}}
+                    <div id="btnLoginCambioContra">
+                        {{formu.cambiar}}
+                    </div>
+                </div>
+            </form>
+        </div>
+                
     </div>
     
 
