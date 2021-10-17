@@ -15,15 +15,22 @@ def inicio():
     if (form.validate_on_submit()):
         usuario=request.form["usuario"]
         contrasena=request.form["contrasena"]
+        db=conn()
+        usuarioConsulta = db.execute("select * from login where user = ?", (usuario,)).fetchone()
+        db.commit()
 
-
-        if(usuario == "Estudiante"):
-            return (informacionestudiante())
-        if(usuario == "Profesor"):
-            return (informacionprofesores())
-        if(usuario == "Administrador"):
-            return (adminRegistro())
-        ### Se dirige a la ventana de acuerdo al ROL
+        if usuarioConsulta is not None:
+            sw = check_password_hash(usuarioConsulta[1], contrasena)
+            if(sw):
+                if(usuarioConsulta[2] == "Estudiante"):
+                    closeConn()
+                    return (informacionestudiante())
+                if(usuarioConsulta[2] == "Profesor"):
+                    closeConn()
+                    return (informacionprofesores())
+                if(usuarioConsulta[2] == "Administrador"):
+                    closeConn()
+                    return (adminRegistro())
     return render_template("index.html", form=form)
 
 
@@ -84,8 +91,6 @@ def adminRegistro():
                 closeConn()
             except Error:
                 print(Error)
-
-        ### Regresa a la misma ventana con alerta, usuario registrado y lo almacena en la base de datos SQLITE
     return render_template("adminRegistro.html", form=form)
 
 @main.route("/busquedasadmin/")
