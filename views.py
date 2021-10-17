@@ -1,8 +1,11 @@
-from types import MethodDescriptorType
+from sqlite3 import Error
 from flask import blueprints, render_template, request
 from flask.helpers import flash, url_for
 from werkzeug.utils import redirect
 from forms import *
+from conn import conn, closeConn
+from werkzeug.security import check_password_hash, generate_password_hash
+import sqlite3
 
 main= blueprints.Blueprint("main", __name__)
 
@@ -12,6 +15,8 @@ def inicio():
     if (form.validate_on_submit()):
         usuario=request.form["usuario"]
         contrasena=request.form["contrasena"]
+
+
         if(usuario == "Estudiante"):
             return (informacionestudiante())
         if(usuario == "Profesor"):
@@ -36,7 +41,50 @@ def administrarCursosProfesor():
 def adminRegistro():
     form = FormRegistrarUsuario()
     if (form.validate_on_submit()):
-        return ("SE REGISTRO EL USUARIO")
+        nombre= request.form["nombre"]
+        apellido= request.form["apellido"]
+        codigo= request.form["codigo"]
+        telefono= request.form["telefono"]
+        correo= request.form["correo"]
+        rol= request.form["rol"]
+        usuario= request.form["usuario"]
+        contrasena= request.form["contrasena"]
+        contrasena = generate_password_hash(contrasena)
+
+        valoresAIngresar=(usuario,contrasena,rol)
+        query="insert into login(user, password, rol)values(?,?,?)"
+        try:
+            db = conn()
+            db.execute(query, valoresAIngresar)
+            db.commit()
+            print("Usuario Ingresado a login")
+            
+        except Error:
+            print(Error)    
+        
+        if (rol == "Estudiante"):
+            try:
+                valoresAIngresar=(codigo, nombre, apellido, correo, telefono, usuario)
+                query="insert into alumnos(id_alumno,nombre,apellido,correo,telefono,user)values(?,?,?,?,?,?)"
+                db.execute(query, valoresAIngresar)
+                db.commit()
+                print("Usuario Ingresado a alumnos")
+                closeConn()
+            except Error:
+                print(Error)
+        
+        if (rol == "Profesor"):
+            try:
+                valoresAIngresar=(codigo, nombre, apellido, correo, telefono, usuario)
+                query="insert into profesores(id_profesor,nombre_p,apellido_p,correo_p,telefono_p,user)values(?,?,?,?,?,?)"
+                print(query, valoresAIngresar)
+                db.execute(query, valoresAIngresar)
+                db.commit()
+                print("Usuario Ingresado a profesor")
+                closeConn()
+            except Error:
+                print(Error)
+
         ### Regresa a la misma ventana con alerta, usuario registrado y lo almacena en la base de datos SQLITE
     return render_template("adminRegistro.html", form=form)
 

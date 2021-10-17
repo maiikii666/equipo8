@@ -1,12 +1,13 @@
 from werkzeug.utils import validate_arguments, secure_filename
 from flask_wtf import Form
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
+from wtforms import StringField, PasswordField, SubmitField, RadioField
+from wtforms.fields.html5 import EmailField
 from wtforms.fields.core import DateField
-from wtforms.validators import DataRequired, Email, EqualTo, Length, Optional
+from wtforms.validators import DataRequired, InputRequired, Email
 
 class FormInicio(Form):
-    usuario = StringField("Usuario", validators=[DataRequired()])
-    contrasena = PasswordField("Contrasena", validators=[DataRequired()])
+    usuario = StringField("Usuario", validators=[InputRequired()])
+    contrasena = PasswordField("Contrasena", validators=[InputRequired()])
     enviar = SubmitField("Iniciar Sesión")
 
 class FormRegistrarUsuario(Form):
@@ -14,8 +15,8 @@ class FormRegistrarUsuario(Form):
     apellido= StringField("Apellido", validators=[DataRequired()])
     codigo= StringField("Codigo", validators=[DataRequired()])
     telefono= StringField("Telefono", validators=[DataRequired()])
-    correo= StringField("Correo", validators=[DataRequired()])
-    rol= RadioField("Rol", choices=[("value","Estudiante"), ("value_two","Profesor")])
+    correo= EmailField("Correo", validators=[DataRequired(), Email(message=None, granular_message=False, check_deliverability=False, allow_smtputf8=True, allow_empty_local=False)])
+    rol= RadioField("Rol", choices=[("Estudiante"), ("Profesor")])
     usuario= StringField("Usuario", validators=[DataRequired()])
     contrasena = PasswordField("Contrasena", validators=[DataRequired()])
     crear= SubmitField("Crear")
