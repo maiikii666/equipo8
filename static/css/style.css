@@ -35,6 +35,11 @@ form div input{
 #logo {
     padding-top: 20px;
     padding-bottom: 15px;
+    display: grid;
+}
+
+#logo img {
+    margin: auto;
 }
 
 #btnLogin input{

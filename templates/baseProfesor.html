@@ -11,14 +11,14 @@
         <div class="asideSuperior">
             <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="fotoUsuario" class="fotoUsuario">
             <h1 class="usuarioAside">Profesor</h1>
-            <button class="button"> <a href=../ style="color: white;"> Salir </a></button>
+            <button class="button"> <a href= {{url_for("main.inicio")}} style="color: white;"> Salir </a></button>
             
         </div>
         <div class="asideInferior">
             <h1>PANEL DE NAVEGACION</h1>
 
-            <a href=../administrarCursosProfesor>Administrar materias</a>
-            <a href=../informacionprofesores>Ver Información</a>
+            <a href= {{url_for("main.administrarCursosProfesor")}} >Administrar materias</a>
+            <a href= {{url_for("main.informacionprofesores")}} >Ver Información</a>
 
             <button class="button">FAQ</button>
             <button class="button">Reportar Error</button>
