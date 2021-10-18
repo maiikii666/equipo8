@@ -1,7 +1,10 @@
+import functools
 from sqlite3 import Error
 from flask import blueprints, render_template, request, session, flash
 from flask.helpers import flash, url_for
+from flask.sessions import NullSession
 from werkzeug.utils import redirect
+from wtforms.validators import NoneOf
 from forms import *
 from conn import conn, closeConn
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -9,9 +12,19 @@ import sqlite3
 
 main= blueprints.Blueprint("main", __name__)
 
+
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if "usuario" not in session:
+            return redirect(url_for("main.inicio"))
+        return view(**kwargs)
+    return wrapped_view
+
 @main.route("/", methods=["GET", "POST"])
 def inicio():
     form = FormInicio()
+    
     if (form.validate_on_submit()):
         usuario=request.form["usuario"]
         contrasena=request.form["contrasena"]
@@ -24,12 +37,18 @@ def inicio():
             sw = check_password_hash(usuarioConsulta[1], contrasena)        
             if(sw):
                 if(usuarioConsulta[2] == "Estudiante"):
+                    session["usuario"]=usuarioConsulta[0]
+                    session["rol"]=usuarioConsulta[2]
                     closeConn()
                     return (informacionestudiante())
                 if(usuarioConsulta[2] == "Profesor"):
+                    session["usuario"]=usuarioConsulta[0]
+                    session["rol"]=usuarioConsulta[2]
                     closeConn()
                     return (informacionprofesores())
                 if(usuarioConsulta[2] == "Administrador"):
+                    session["usuario"]=usuarioConsulta[0]
+                    session["rol"]=usuarioConsulta[2]
                     closeConn()
                     return (adminRegistro())
             else:
@@ -40,17 +59,22 @@ def inicio():
     return render_template("index.html", form=form)
 
 
+
 @main.route("/adminAdministraMaterias/")
+@login_required
 def adminAdministraMaterias():
 ###FALTA VISTA PARA AGREGAR ESTUDIANTE AL CURSO
     return render_template("adminAdministraMaterias.html")
 
+
 @main.route("/administrarCursosProfesor/")
+@login_required
 def administrarCursosProfesor():
     return render_template("administrarCursosProfesor.html")
     
 
 @main.route("/adminRegistro/", methods=["GET", "POST"])
+@login_required
 def adminRegistro():
     form = FormRegistrarUsuario()
     if (form.validate_on_submit()):
@@ -100,11 +124,15 @@ def adminRegistro():
                 print(Error)
     return render_template("adminRegistro.html", form=form)
 
+
 @main.route("/busquedasadmin/")
+@login_required
 def busquedasadmin():
     return render_template("busquedasadmin.html")
 
+
 @main.route("/creareditaractiv/", methods=["GET", "POST"])
+@login_required
 def creareditaractiv():
     form = FormCrearActividad()
     if (form.validate_on_submit()):
@@ -112,7 +140,9 @@ def creareditaractiv():
         ### Se debe actualizar la lista con las actividades, y salir alerta de actividad creada
     return render_template("creareditaractiv.html", form=form)
 
+
 @main.route("/creareditaractivProfesor/", methods=["GET", "POST"])
+@login_required
 def creareditaractivProfesor():
     form = FormCrearActividad()
     if (form.validate_on_submit()):
@@ -120,23 +150,33 @@ def creareditaractivProfesor():
         ###Debe retornar alerta de actividad creada
     return render_template("creareditaractivProfesor.html",)
 
+
 @main.route("/crearMateria/")
+@login_required
 def crearMateria():
     return render_template("crearMateria.html")
 
+
 @main.route("/detalleactividadAdmin/")
+@login_required
 def detalleactividadAdmin():
     return render_template("detalleactividadAdmin.html")
 
+
 @main.route("/detalleActividadEstudiante/")
+@login_required
 def detalleActividadEstudiante():
     return render_template("detalleActividadEstudiante.html")
 
+
 @main.route("/detalleactividadProfesor/")
+@login_required
 def detalleactividadProfesor():
     return render_template("detalleactividadProfesor.html")
 
+
 @main.route("/informacionestudiante/", methods=["GET", "POST"])
+@login_required
 def informacionestudiante():
     ### Si llega con GET muestra la información de la BD
     ### Si llega con POST actualiza la información en la BD
@@ -148,7 +188,9 @@ def informacionestudiante():
         return ("CONTRASEÑA CAMBIADA")
     return render_template("informacionestudiante.html", form=form, formu=formu)
 
+
 @main.route("/informacionprofesores/", methods=["GET", "POST"])
+@login_required
 def informacionprofesores():
     ### Si llega con GET muestra la información de la BD
     ### Si llega con POST actualiza la información en la BD
@@ -160,10 +202,21 @@ def informacionprofesores():
         return ("CONTRASEÑA CAMBIADA")
     return render_template("informacionprofesores.html", form=form, formu=formu)
 
+
 @main.route("/notasestudiante/")
+@login_required
 def notasestudiante():
     return render_template("notasestudiante.html")
 
+
 @main.route("/retroalimentacionestudiante/")
+@login_required
 def retroalimentacionestudiante():
     return render_template("retroalimentacionestudiante.html")
+
+
+@main.route("/salir/")
+@login_required
+def salir():
+    session.clear()
+    return redirect(url_for("main.inicio"))
