@@ -22,12 +22,19 @@
             <div id="password" class="camposLogin">
                 {{form.contrasena(size=30, placeholder="Contraseña")}}
             </div>
+            {% for message in get_flashed_messages() %}
+            <div class="mensaje">
+                <p> {{message}} </p>
+            </div>
+            {% endfor %}
             <div id="recordarContrasena">
                 <a href="">¿Olvidó su contraseña?</a>
             </div>
             <div id="btnLogin">
                 {{form.enviar()}}
             </div>
+
+
         </form>
     </section>
     <footer>

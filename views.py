@@ -1,5 +1,5 @@
 from sqlite3 import Error
-from flask import blueprints, render_template, request
+from flask import blueprints, render_template, request, session, flash
 from flask.helpers import flash, url_for
 from werkzeug.utils import redirect
 from forms import *
@@ -20,7 +20,8 @@ def inicio():
         db.commit()
 
         if usuarioConsulta is not None:
-            sw = check_password_hash(usuarioConsulta[1], contrasena)
+            contrasena = contrasena + usuario + "Surcolombiana"
+            sw = check_password_hash(usuarioConsulta[1], contrasena)        
             if(sw):
                 if(usuarioConsulta[2] == "Estudiante"):
                     closeConn()
@@ -31,6 +32,11 @@ def inicio():
                 if(usuarioConsulta[2] == "Administrador"):
                     closeConn()
                     return (adminRegistro())
+            else:
+                flash("Contraseña incorrecta")
+        if usuarioConsulta is None:
+            flash("Usuario incorrecto")
+
     return render_template("index.html", form=form)
 
 
@@ -56,6 +62,7 @@ def adminRegistro():
         rol= request.form["rol"]
         usuario= request.form["usuario"]
         contrasena= request.form["contrasena"]
+        contrasena= contrasena + usuario + "Surcolombiana"
         contrasena = generate_password_hash(contrasena)
 
         valoresAIngresar=(usuario,contrasena,rol)

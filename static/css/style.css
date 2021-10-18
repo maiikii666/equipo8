@@ -47,6 +47,10 @@ form div input{
     color: white;
 }
 
+.mensaje p{
+    background-color: rgb(236, 235, 233);
+}
+
 /*FIN DE LO QUE AFECTA EL LOGUIN*/
 
 
