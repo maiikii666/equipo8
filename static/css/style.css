@@ -642,7 +642,24 @@ li {
     background-color: white;
 }
 
+.flashRol {
+    background-color: white;
+    color: #9E0000;
+}
 
+#codigoEnInfo {
+    width: 100%;
+    text-align: center;
+    border: solid;
+    border-width: 5px;
+    border-color: #9E0000;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    position: relative;
+    justify-self: center;
+    margin-top: 0px;
+}
 
 /*fin información profesores*/
 

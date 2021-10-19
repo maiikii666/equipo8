@@ -10,7 +10,12 @@
     <aside class="asidePrincipal">
         <div class="asideSuperior">
             <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="fotoUsuario" class="fotoUsuario">
-            <h1 class="usuarioAside">Profesor</h1>
+            <h1 class="usuarioAside" id="rolPagina">Profesor</h1>
+            {% for message in get_flashed_messages() %}
+            <div class="flashRol">
+                <p id="flashRolP">{{message}}</p>
+            </div>
+            {% endfor %}
             <button class="button"> <a href= {{url_for("main.salir")}} style="color: white;"> Salir </a></button>
             
         </div>

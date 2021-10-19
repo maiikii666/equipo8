@@ -20,7 +20,7 @@
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Código</p>
-                <p class="pConBorde">0001001</p>
+                <p id="codigoEnInfo">0001001</p>
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Teléfono Móvil</p>
@@ -50,9 +50,11 @@
             <form id="cambioContra" name="login" >
                 {{formu.hidden_tag()}}
                 <div class="contenedorCambiarContraseñaInfo">
+                    {% for message in get_flashed_messages() %}
                     <div id="userNameCambioContra" class="camposLoginCambioContra">
-                        <p>Usuario</p>
+                        <p id="flashRolP">{{message}}</p>
                     </div>
+                    {% endfor %}
                     <div id="passwordCambioContra" class="camposLoginCambioContra">
                         {{formu.contrasena}}
                         {{formu.contrasenaNueva}}

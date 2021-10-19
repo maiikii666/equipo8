@@ -211,6 +211,7 @@ def detalleactividadProfesor():
 def informacionestudiante():
     ### Si llega con GET muestra la información de la BD
     ### Si llega con POST actualiza la información en la BD
+    flash(session["usuario"])
     form= FormActualizar()
     if (form.validate_on_submit()):
         return ("INFORMACIÓN ACTUALIZADA")
@@ -224,6 +225,7 @@ def informacionestudiante():
 @login_required
 @login_profesor
 def informacionprofesores():
+    flash(session["usuario"])
     ### Si llega con GET muestra la información de la BD
     ### Si llega con POST actualiza la información en la BD
     form= FormActualizar()

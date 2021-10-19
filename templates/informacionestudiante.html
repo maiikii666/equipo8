@@ -1,6 +1,7 @@
 {% extends "baseEstudiante.html" %}
 
 {% block section %}
+<script src="{{url_for('static', filename='js/ajax.js')}}"></script>
 
 
 <section class="sectionPrincipales">
@@ -13,23 +14,23 @@
         <div class="contenedorIzquierdoInformacionProfesores">
             <div class="contenedorInfoProfesorEditable">
                 <p>Nombre</p>
-                 {{form.nombre}}   
+                 {{form.nombre(id="campoNombreInfo")}}   
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Apellido</p>
-                {{form.apellido}}
+                {{form.apellido(id="campoApellidoInfo")}}
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Código</p>
-                <p class="pConBorde">0001001</p>
+                <p id="codigoEnInfo"></p>
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Teléfono Móvil</p>
-                 {{form.telefono}} 
+                 {{form.telefono(id="campoTelefonoInfo")}} 
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Correo</p>
-                 {{form.correo}} 
+                 {{form.correo(id="campoCorreoInfo")}} 
             </div>
             <div class="guardarActualizarInfo">
                 {{form.guardar}}
@@ -51,9 +52,11 @@
             <form id="cambioContra" name="login" >
                 {{formu.hidden_tag()}}
                 <div class="contenedorCambiarContraseñaInfo">
+                    {% for message in get_flashed_messages() %}
                     <div id="userNameCambioContra" class="camposLoginCambioContra">
-                        <p>Usuario</p>
+                        <p id="flashRolP">{{message}}</p>
                     </div>
+                    {% endfor %}
                     <div id="passwordCambioContra" class="camposLoginCambioContra">
                         {{formu.contrasena}}
                         {{formu.contrasenaNueva}}
