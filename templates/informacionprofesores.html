@@ -2,6 +2,9 @@
 
 {% block section %}
 
+<script src="{{url_for('static', filename='js/ajax.js')}}"></script>
+
+
 <section class="sectionPrincipales">
 
     <h1>INFORMACIÓN DE PROFESOR</h1>
@@ -12,23 +15,23 @@
         <div class="contenedorIzquierdoInformacionProfesores">
             <div class="contenedorInfoProfesorEditable">
                 <p>Nombre</p>
-                 {{form.nombre}}   
+                <p class="campoEnInfo" id="campoNombreInfo"></p>
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Apellido</p>
-                {{form.apellido}}
+                <p class="campoEnInfo" id="campoApellidoInfo"></p>
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Código</p>
-                <p id="codigoEnInfo">0001001</p>
+                <p class="campoEnInfo" id="codigoEnInfo"></p>
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Teléfono Móvil</p>
-                 {{form.telefono}} 
+                {{form.telefono(id="campoTelefonoInfo")}}
             </div>
             <div class="contenedorInfoProfesorEditable">
                 <p>Correo</p>
-                 {{form.correo}} 
+                {{form.correo(id="campoCorreoInfo")}} 
             </div>
             <div class="guardarActualizarInfo">
                 {{form.guardar}}
@@ -56,9 +59,9 @@
                     </div>
                     {% endfor %}
                     <div id="passwordCambioContra" class="camposLoginCambioContra">
-                        {{formu.contrasena}}
-                        {{formu.contrasenaNueva}}
-                        {{formu.contrasenaConfirmada}}
+                        {{formu.contrasena(placeholder="Digite la contraseña actual")}}
+                        {{formu.contrasenaNueva(placeholder="Digite la nueva contraseña")}}
+                        {{formu.contrasenaConfirmada(placeholder="Confirme la nueva contraseña")}}
                     <div id="btnLoginCambioContra">
                         {{formu.cambiar}}
                     </div>

@@ -209,12 +209,23 @@ def detalleactividadProfesor():
 @login_required
 @login_estudiante
 def informacionestudiante():
-    ### Si llega con GET muestra la información de la BD
-    ### Si llega con POST actualiza la información en la BD
     flash(session["usuario"])
     form= FormActualizar()
     if (form.validate_on_submit()):
-        return ("INFORMACIÓN ACTUALIZADA")
+        telefonoNuevo=request.form["telefono"]
+        correoNuevo=request.form["correo"]
+        usuarioActual=session["usuario"]
+        query="update alumnos set telefono = ?, correo = ? where user = ?"
+        valoresACambiar = (telefonoNuevo, correoNuevo, usuarioActual)
+        print(query,valoresACambiar)
+        try:
+            db = conn()
+            db.execute(query, valoresACambiar)
+            db.commit()
+            closeConn()
+        except Error:
+            print(Error)
+
     formu= FormCambiarContrasena()
     if (formu.validate_on_submit()):
         return ("CONTRASEÑA CAMBIADA")
@@ -226,11 +237,22 @@ def informacionestudiante():
 @login_profesor
 def informacionprofesores():
     flash(session["usuario"])
-    ### Si llega con GET muestra la información de la BD
-    ### Si llega con POST actualiza la información en la BD
     form= FormActualizar()
     if (form.validate_on_submit()):
-        return ("INFORMACIÓN ACTUALIZADA")
+        telefonoNuevo=request.form["telefono"]
+        correoNuevo=request.form["correo"]
+        usuarioActual=session["usuario"]
+        query="update profesores set telefono_p = ?, correo_p = ? where user = ?"
+        valoresACambiar = (telefonoNuevo, correoNuevo, usuarioActual)
+        print(query,valoresACambiar)
+        try:
+            db = conn()
+            db.execute(query, valoresACambiar)
+            db.commit()
+            closeConn()
+        except Error:
+            print(Error)
+
     formu= FormCambiarContrasena()
     if (formu.validate_on_submit()):
         return ("CONTRASEÑA CAMBIADA")

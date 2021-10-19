@@ -23,9 +23,10 @@ function manejarError(evt) {
 function completado(evt) {
     let data = JSON.parse(this.response);
     console.log(data);
-    document.getElementById("campoNombreInfo").value =data.nombre;
-    document.getElementById("campoApellidoInfo").value = data.apellido;
+    document.getElementById("campoNombreInfo").textContent =data.nombre;
+    document.getElementById("campoApellidoInfo").textContent = data.apellido;
     document.getElementById("codigoEnInfo").textContent = data.codigo;
     document.getElementById("campoTelefonoInfo").value = data.telefono;
     document.getElementById("campoCorreoInfo").value = data.correo;
 }
+

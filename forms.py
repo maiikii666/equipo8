@@ -29,8 +29,6 @@ class FormCrearActividad(Form):
     enviar= SubmitField("Guardar")
 
 class FormActualizar(Form):
-    nombre= StringField("Nombre", validators=[DataRequired()])
-    apellido= StringField("Apellido", validators=[DataRequired()])
     telefono= StringField("Telefono", validators=[DataRequired()])
     correo= StringField("Correo", validators=[DataRequired()])
     guardar= SubmitField("Guardar")

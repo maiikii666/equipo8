@@ -647,7 +647,7 @@ li {
     color: #9E0000;
 }
 
-#codigoEnInfo {
+.campoEnInfo {
     width: 100%;
     text-align: center;
     border: solid;
