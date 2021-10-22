@@ -22,19 +22,26 @@
             <a href= ../crearMateria ><button class="buttonPequeño">Crear Materia</button></a>
         </div>
         
+        
         <div id="contenedorParaMaterias">
             <div class="contenedorMateria">
                 <div class="materia">
-                    <p id="NombreMateriaAdministrarMateria">Nombre Materia</p>
+                    
+                    {{formularioAgregarEstudiante.nombreMateria(id="nombreMateriaAdministrarMateria", placeholder="Nombre materia")}}
+                    {{formularioRemoverEstudiante.nombreMateria(id="nombreMateriaAdministrarMateria2")}}
                     <div class="listaEstudiantes" id="listaParaLlenarEstudiantes">
                     </div>
                     <div class="contenedorFormQuitaYAgrega">
+                        <form method="post">
                         {{formularioAgregarEstudiante.codigoEstudiante(class="campoIdAgregarEstudiante")}}
                         {{formularioAgregarEstudiante.agregarEstudiante(class="botonAgregarRemoverEstudiante")}}
+                        </form>
                     </div>
                     <div class="contenedorFormQuitaYAgrega">
+                        <form method="post">
                         {{formularioRemoverEstudiante.codigoEstudiante(class="campoIdAgregarEstudiante")}}
                         {{formularioRemoverEstudiante.removerEstudiante(class="botonAgregarRemoverEstudiante")}}
+                        </form>
                     </div>
 
                     

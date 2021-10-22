@@ -88,6 +88,23 @@ def adminAdministraMaterias(): ### AQUÍ VOY
     formularioAgregarEstudiante = FormAgregarEstudiantesCrearMateria()
     formularioRemoverEstudiante = FormRemoverEstudiantesCrearMateria()
 
+    if (formularioAgregarEstudiante.validate_on_submit()):
+        estudiante = request.form["codigoEstudiante"]
+        materia = request.form["nombreMateria"]
+        queryConsulta = "select estudiantes from materias where nombre_materia = ?"
+        queryActualizacion = "UPDATE materias SET estudiantes = ? WHERE nombre_materia LIKE ?"
+        
+        try:
+            db = conn()
+            estudiantesMatriculados = db.execute(queryConsulta, (materia,)).fetchone()
+            print(estudiantesMatriculados)
+            estudiantesMatriculados += ","+estudiante
+            valoresParaActualizar = (estudiantesMatriculados, materia)
+            db.execute(queryActualizacion,valoresParaActualizar)
+            db.commit()
+            
+        except Error:
+            print(Error)
 
 
 

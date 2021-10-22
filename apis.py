@@ -1,5 +1,5 @@
 from sqlite3.dbapi2 import Error
-from flask import jsonify, blueprints
+from flask import json, jsonify, blueprints
 from conn import conn, closeConn
 
 
@@ -83,13 +83,16 @@ def listaMaterias():
     except Error:
         print(Error)
 
-@api.route("/materias/<string:materia>")
+@api.route("/materias/<string:materia>/")
 def seleccionarMateria(materia):
     try:
         db = conn()
         query = "SELECT * from materias where nombre_materia = ?"
         resultadoConsulta = db.execute(query, (materia,))
         materia = resultadoConsulta.fetchone()
+        query = "SELECT nombre_p, apellido_p from profesores where id_profesor = ?"
+        profeABuscar = materia[2]
+        nombreProfe = db.execute(query, (profeABuscar,)).fetchone()
         db.commit()
         closeConn()
 
@@ -97,6 +100,7 @@ def seleccionarMateria(materia):
         materiaJson["nombre"] = materia[1]
         materiaJson["profesor"] = materia[2]
         materiaJson["estudiantes"] = materia[3]
+        materiaJson["nombreProfe"] = nombreProfe[0] + " " + nombreProfe[1]
 
         return jsonify(materiaJson)
     except Error:

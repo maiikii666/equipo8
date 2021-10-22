@@ -46,8 +46,10 @@ class FormCrearMateria(Form):
 
 class FormAgregarEstudiantesCrearMateria(Form):
     codigoEstudiante= StringField("Codigo estudiante", validators=[DataRequired()])
+    nombreMateria= StringField("Nombre materia", validators=[DataRequired()])
     agregarEstudiante= SubmitField("Agregar estudiante")
 
 class FormRemoverEstudiantesCrearMateria(Form):
     codigoEstudiante= StringField("Codigo estudiante", validators=[DataRequired()])
+    nombreMateria= StringField("Nombre materia", validators=[DataRequired()])
     removerEstudiante= SubmitField("Remover estudiante")
