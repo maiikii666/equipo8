@@ -262,9 +262,27 @@ a .buttonPequeño {
 
 .materia {
     display: grid;
-    grid-template-rows: 2fr 4fr 1fr;
+    grid-template-rows: 2fr 4fr 1fr 1fr;
     margin: auto;
     background-color: white;
+    max-width: 350px;
+}
+
+.nombreMateriaAgregarMateria {
+    padding: 10px;
+    margin: auto;
+}
+
+.contenedorFormQuitaYAgrega {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5px;
+    background-color: white;
+}
+
+.botonAgregarRemoverEstudiante{
+    color: white;
+    background-color: #9E0000;
 }
 
 .estado {
@@ -285,8 +303,15 @@ li {
     list-style-type: none;
     background-color: white;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    height: 25px;
 }
+
+#listaParaLlenarEstudiantes {
+    overflow-y:scroll;
+    background-color: white;
+    max-height: 100px;
+}
+
 
 .imgEstadoMateria {
     background-color: white;

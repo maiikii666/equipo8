@@ -30,3 +30,6 @@ function completado(evt) {
     document.getElementById("campoCorreoInfo").value = data.correo;
 }
 
+function alerta() {
+    window.alert("usuario actualizado");
+}

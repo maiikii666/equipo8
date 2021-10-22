@@ -38,3 +38,15 @@ class FormCambiarContrasena(Form):
     contrasenaNueva= PasswordField("Contraseña", validators=[DataRequired()])
     contrasenaConfirmada= PasswordField("Contraseña", validators=[DataRequired()])
     cambiar= SubmitField("Cambiar Contraseña")
+
+class FormCrearMateria(Form):
+    nombreMateria= StringField("Nombre Materia", validators=[DataRequired()])
+    crearMateria= SubmitField("Crear materia")
+
+class FormAgregarEstudiantesCrearMateria(Form):
+    codigoEstudiante= StringField("Codigo estudiante", validators=[DataRequired()])
+    agregarEstudiante= SubmitField("Agregar estudiante")
+
+class FormRemoverEstudiantesCrearMateria(Form):
+    codigoEstudiante= StringField("Codigo estudiante", validators=[DataRequired()])
+    removerEstudiante= SubmitField("Remover estudiante")

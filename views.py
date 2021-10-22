@@ -60,17 +60,17 @@ def inicio():
                     session["usuario"]=usuarioConsulta[0]
                     session["rol"]=usuarioConsulta[2]
                     closeConn()
-                    return (informacionestudiante())
+                    return (notasestudiante())
                 if(usuarioConsulta[2] == "Profesor"):
                     session["usuario"]=usuarioConsulta[0]
                     session["rol"]=usuarioConsulta[2]
                     closeConn()
-                    return (informacionprofesores())
+                    return (administrarCursosProfesor())
                 if(usuarioConsulta[2] == "Administrador"):
                     session["usuario"]=usuarioConsulta[0]
                     session["rol"]=usuarioConsulta[2]
                     closeConn()
-                    return (adminRegistro())
+                    return (busquedasadmin())
             else:
                 flash("Contraseña incorrecta")
         if usuarioConsulta is None:
@@ -80,12 +80,19 @@ def inicio():
 
 
 
-@main.route("/adminAdministraMaterias/")
+@main.route("/adminAdministraMaterias/", methods=["GET", "POST"])
 @login_required
 @login_administrador
-def adminAdministraMaterias():
-###FALTA VISTA PARA AGREGAR ESTUDIANTE AL CURSO
-    return render_template("adminAdministraMaterias.html")
+def adminAdministraMaterias(): ### AQUÍ VOY
+    formularioCrearMateria = FormCrearMateria()
+    formularioAgregarEstudiante = FormAgregarEstudiantesCrearMateria()
+    formularioRemoverEstudiante = FormRemoverEstudiantesCrearMateria()
+
+
+    #if formularioAgregarEstudiante
+
+    return render_template("adminAdministraMaterias.html", formularioCrearMateria=formularioCrearMateria, 
+    formularioAgregarEstudiante=formularioAgregarEstudiante, formularioRemoverEstudiante=formularioRemoverEstudiante)
 
 
 @main.route("/administrarCursosProfesor/")

@@ -5,6 +5,7 @@
 
 
 <section class="sectionPrincipales">
+    <script src="{{url_for('static', filename='js/ajaxlistaEstudiantes.js')}}"></script>
             
     <h1>ADMINISTRAR MATERIAS</h1>
 
@@ -13,13 +14,18 @@
     <div class="cajaMaterias">
         <div class="contenedorMateria">
             <div class="materia">
-                <p>Nombre Materia</p>
-                <ul class="listaEstudiantes">
-                    <li>Estudiante1</li>
-                    <li>Estudiante2</li>
-                    <li>Estudiante2</li>
-                </ul>
-                <a href=""><button class="buttonPequeño">Agregar Estudiante</button></a>
+                {{formularioCrearMateria.nombreMateria(placeholder="Nombre Materia", class="nombreMateriaAgregarMateria")}}
+                <div class="listaEstudiantes" id="listaParaLlenarEstudiantes">
+                </div>
+                <div class="contenedorFormQuitaYAgrega">
+                    {{formularioAgregarEstudiante.codigoEstudiante(class="campoIdAgregarEstudiante")}}
+                    {{formularioAgregarEstudiante.agregarEstudiante(class="botonAgregarRemoverEstudiante")}}
+                </div>
+                <div class="contenedorFormQuitaYAgrega">
+                    {{formularioRemoverEstudiante.codigoEstudiante(class="campoIdAgregarEstudiante")}}
+                    {{formularioRemoverEstudiante.removerEstudiante(class="botonAgregarRemoverEstudiante")}}
+                </div>
+
                 
             </div>
             <div class="estado">

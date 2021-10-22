@@ -33,3 +33,26 @@ def informacion(rol, usuario):
         return jsonify(usuarioJson)
     except Error:
         print(Error)
+
+@api.route("/listaEstudiantes/")
+def listaEstudiantes():
+    try:
+        db = conn()
+        query = "SELECT * from alumnos"
+        resultadoConsulta = db.execute(query)
+        estudiantes = resultadoConsulta.fetchall()
+        db.commit()
+        closeConn()
+        print(estudiantes)
+
+        estudiantesJson = []
+        for estudiante in estudiantes:
+            estudianteJson = {}
+            estudianteJson["codigo"] = estudiante[0]
+            estudianteJson["nombreYApellido"] = estudiante[1] + " " + estudiante[2]
+            estudiantesJson.append(estudianteJson)
+
+        return jsonify(estudiantesJson)
+
+    except Error:
+        print(Error)
