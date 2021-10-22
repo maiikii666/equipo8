@@ -5,74 +5,55 @@
 
 
 <section class="sectionPrincipales">
+    
     <script src="{{url_for('static', filename='js/ajaxlistaEstudiantes.js')}}"></script>
+    
             
     <h1>ADMINISTRAR MATERIAS</h1>
 
     <h1 class="buttonPequeño">MATERIAS</h1>
 
-    <div class="cajaMaterias">
-        <div class="contenedorMateria">
-            <div class="materia">
-                {{formularioCrearMateria.nombreMateria(placeholder="Nombre Materia", class="nombreMateriaAgregarMateria")}}
-                <div class="listaEstudiantes" id="listaParaLlenarEstudiantes">
-                </div>
-                <div class="contenedorFormQuitaYAgrega">
-                    {{formularioAgregarEstudiante.codigoEstudiante(class="campoIdAgregarEstudiante")}}
-                    {{formularioAgregarEstudiante.agregarEstudiante(class="botonAgregarRemoverEstudiante")}}
-                </div>
-                <div class="contenedorFormQuitaYAgrega">
-                    {{formularioRemoverEstudiante.codigoEstudiante(class="campoIdAgregarEstudiante")}}
-                    {{formularioRemoverEstudiante.removerEstudiante(class="botonAgregarRemoverEstudiante")}}
-                </div>
+    <div id="listaMaterias">
 
-                
-            </div>
-            <div class="estado">
-                <p>Estado</p>
-                <img src="{{url_for('static', filename='img/candadoCerrado.png')}}" alt="Candado cerrado" class="imgEstadoMateria">
-                <a href= ../creareditaractiv ><button class="buttonPequeño">Crear/Editar Actividades</button></a>
-                <a href=""><button class="buttonPequeño">Bloquear Notas</button></a>
-                
-            </div>
-            <div class="profesor">
-                <p>Profesor</p>
-                <p>Nombre Profesor</p>
-                <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="Imagen Profesor" class="imgPequenaProfesor">
-                <a href=""><button class="buttonPequeño">Asignar Profesor</button></a>
-                
-            </div>
-        </div>
-        <div class="contenedorMateria">
-            <div class="materia">
-                <p>Nombre Materia2</p>
-                <ul class="listaEstudiantes">
-                    <li>Estudiante1</li>
-                    <li>Estudiante2</li>
-                    <li>Estudiante2</li>
-                </ul>
-                <a href=""><button class="buttonPequeño">Agregar Estudiante</button></a>
-                
-            </div>
-            <div class="estado">
-                <p>Estado</p>
-                <img src="{{url_for('static', filename='img/candadoCerrado.png')}}" alt="Candado cerrado" class="imgEstadoMateria">
-                <a href=../creareditaractiv><button class="buttonPequeño">Crear/Editar Actividades</button></a>
-                <a href=""><button class="buttonPequeño">Bloquear Notas</button></a>
-                
-            </div>
-            <div class="profesor">
-                <p>Profesor</p>
-                <p>Nombre Profesor</p>
-                <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="Imagen Profesor" class="imgPequenaProfesor">
-                <a href=""><button class="buttonPequeño">Asignar Profesor</button></a>
-                
-            </div>
-        </div>
+    </div>
+
+    <div class="cajaMaterias">
         <div class="botonCrearMateriaDesdeAdmin">
             <a href= ../crearMateria ><button class="buttonPequeño">Crear Materia</button></a>
         </div>
         
+        <div id="contenedorParaMaterias">
+            <div class="contenedorMateria">
+                <div class="materia">
+                    <p id="NombreMateriaAdministrarMateria">Nombre Materia</p>
+                    <div class="listaEstudiantes" id="listaParaLlenarEstudiantes">
+                    </div>
+                    <div class="contenedorFormQuitaYAgrega">
+                        {{formularioAgregarEstudiante.codigoEstudiante(class="campoIdAgregarEstudiante")}}
+                        {{formularioAgregarEstudiante.agregarEstudiante(class="botonAgregarRemoverEstudiante")}}
+                    </div>
+                    <div class="contenedorFormQuitaYAgrega">
+                        {{formularioRemoverEstudiante.codigoEstudiante(class="campoIdAgregarEstudiante")}}
+                        {{formularioRemoverEstudiante.removerEstudiante(class="botonAgregarRemoverEstudiante")}}
+                    </div>
+
+                    
+                </div>
+                <div class="estado">
+                    <a href= ../creareditaractiv ><button class="buttonPequeño">Crear/Editar Actividades</button></a>
+                    
+                </div>
+                <div class="profesor">
+                    <p>Profesor</p>
+                    <p id="nombreProfeConsultarMateria">Nombre Profesor</p>
+                    <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="Imagen Profesor" class="imgPequenaProfesor">
+                    <a href=""><button class="buttonPequeño">Asignar Profesor</button></a>
+                    
+                </div>
+            </div>
+        </div>
+
+
 
     </div>
 

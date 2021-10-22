@@ -5,37 +5,24 @@
 <section class="sectionPrincipales">
 
     <h1>CREAR MATERIA</h1>
-    <form action="" name="formularioCrearMateria" id="formularioCrearMateria">
+    <form action="" name="formularioCrearMateria" id="formularioCrearMateria" method="post">
+        {{formularioCrearMateria.hidden_tag()}}
         <div class="contenedorSuperiorCrearMateria">
             <div class="contenedorIzquierdoSuperiorCrearMateria">
                 <p>Nombre del Curso</p>
-                <input type="text" name="nombreCursoCrearMateria" placeholder="Fisica I" class="pConBorde">
-                <p>Cupo</p>
-                <input type="text" name="cupoCursoCrearMateria" placeholder="35" class="pConBorde">
+                {{formularioCrearMateria.nombreMateria(placeholder="Nombre Materia", class="pConBorde")}}
                 <p>Profesor</p>
-                <input type="text" name="profesorCrearMateria" placeholder="Profesor" class="pConBorde">
+                {{formularioCrearMateria.profesorMateria(placeholder="Codigo profesor", class="pConBorde")}}
             </div>
             <div class="contenedorDerechoSuperiorCrearMateria">
                 <p>Toda materia incluye cuatro actividades mínimas, para editar la ponderación o agregar actividades, ver la pantalla de CREAR/EDITAR actividades.</p>
 
             </div>
         </div>
-        <div class="contenedorInferiorCrearMateria">
-            <div class="contenedorInferiorIzquierdoCrearMateria">
-                <p>Inscribir Estudiantes</p>
-                <input type="text" name="EstudiantesInscritosCrearMateria" class="ListadoEstudiantesCrearMateria">
-            </div>
-            <div class="contenedorInferiorCentralCrearMateria">
-                <button class="buttonPequeño"><<</button>
-                <button class="buttonPequeño">x</button>
-            </div>
-            <div class="contenedorInferiorDerechoCrearMateria">
-                <p>Listado Estudiantes</p>
-                <input type="text" name="ListadoEstudiantesCrearMateria" class="ListadoEstudiantesCrearMateria">
-            </div>
-        </div>
+
         <div class="botonCrearMateriaDesdeAdmin">
-            <input type="submit" name="crearMateriaDesde" id="botonCrearMateria" class="buttonPequeño" value="Crear"">
+            
+            {{formularioCrearMateria.crearMateria(id="botonCrearMateria", class="buttonPequeño")}}
         </div>
 
     </form>

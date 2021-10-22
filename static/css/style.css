@@ -250,8 +250,12 @@ a .buttonPequeño {
 
 .cajaMaterias {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+
     background-color: white;
+}
+
+#contenedorParaMaterias {
+    display: grid;
 }
 
 .contenedorMateria {

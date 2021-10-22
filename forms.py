@@ -41,6 +41,7 @@ class FormCambiarContrasena(Form):
 
 class FormCrearMateria(Form):
     nombreMateria= StringField("Nombre Materia", validators=[DataRequired()])
+    profesorMateria = StringField("Codigo Profesor", validators=[DataRequired()])
     crearMateria= SubmitField("Crear materia")
 
 class FormAgregarEstudiantesCrearMateria(Form):

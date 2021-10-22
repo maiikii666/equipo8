@@ -84,15 +84,14 @@ def inicio():
 @login_required
 @login_administrador
 def adminAdministraMaterias(): ### AQUÍ VOY
-    formularioCrearMateria = FormCrearMateria()
+
     formularioAgregarEstudiante = FormAgregarEstudiantesCrearMateria()
     formularioRemoverEstudiante = FormRemoverEstudiantesCrearMateria()
 
 
-    #if formularioAgregarEstudiante
 
-    return render_template("adminAdministraMaterias.html", formularioCrearMateria=formularioCrearMateria, 
-    formularioAgregarEstudiante=formularioAgregarEstudiante, formularioRemoverEstudiante=formularioRemoverEstudiante)
+
+    return render_template("adminAdministraMaterias.html", formularioAgregarEstudiante=formularioAgregarEstudiante, formularioRemoverEstudiante=formularioRemoverEstudiante)
 
 
 @main.route("/administrarCursosProfesor/")
@@ -184,11 +183,24 @@ def creareditaractivProfesor():
     return render_template("creareditaractivProfesor.html",)
 
 
-@main.route("/crearMateria/")
+@main.route("/crearMateria/", methods=["GET", "POST"])
 @login_required
 @login_administrador
 def crearMateria():
-    return render_template("crearMateria.html")
+    formularioCrearMateria = FormCrearMateria()
+    if (formularioCrearMateria.validate_on_submit()):
+        nombreMateria = request.form["nombreMateria"]
+        profesorMateria= request.form["profesorMateria"]
+        query="INSERT into materias(nombre_materia,id_profesor) VALUES(?,?);" 
+        valoresAIngresar=(nombreMateria,profesorMateria)
+
+        try:
+            db = conn()
+            db.execute(query, valoresAIngresar)
+            db.commit()
+        except Error:
+            print(Error)
+    return render_template("crearMateria.html",  formularioCrearMateria=formularioCrearMateria)
 
 
 @main.route("/detalleactividadAdmin/")

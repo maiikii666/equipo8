@@ -56,3 +56,48 @@ def listaEstudiantes():
 
     except Error:
         print(Error)
+
+#@api.route("/listaMatriculados/,<string:idMateria>")
+
+@api.route("/materias/")
+def listaMaterias():
+    try:
+        db = conn()
+        query = "SELECT * from materias"
+        resultadoConsulta = db.execute(query)
+        materias = resultadoConsulta.fetchall()
+        db.commit()
+        closeConn()
+        print(materias)
+
+        materiasJson = []
+        for materia in materias:
+            materiaJson = {}
+            materiaJson["nombre"] = materia[1]
+            materiaJson["profesor"] = materia[2]
+            materiaJson["estudiantes"] = materia[3]
+            materiasJson.append(materiaJson)
+
+        return jsonify(materiasJson)
+
+    except Error:
+        print(Error)
+
+@api.route("/materias/<string:materia>")
+def seleccionarMateria(materia):
+    try:
+        db = conn()
+        query = "SELECT * from materias where nombre_materia = ?"
+        resultadoConsulta = db.execute(query, (materia,))
+        materia = resultadoConsulta.fetchone()
+        db.commit()
+        closeConn()
+
+        materiaJson = {}
+        materiaJson["nombre"] = materia[1]
+        materiaJson["profesor"] = materia[2]
+        materiaJson["estudiantes"] = materia[3]
+
+        return jsonify(materiaJson)
+    except Error:
+        print(Error)
