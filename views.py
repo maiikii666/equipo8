@@ -91,14 +91,26 @@ def adminAdministraMaterias():
     if (formularioAgregarEstudiante.validate_on_submit()):
         estudiante = request.form["codigoEstudianteAgrega"]
         materia = request.form["nombreMateria"]
-        queryConsulta = "select * from alumnosmaterias where nombre_materia = ?"
+        
         queryActualizacion = "insert into alumnosmaterias(nombreMateria, idAlumno) values (?,?) "
-        
-        
+                
         try:
             db = conn()
             valoresParaActualizar = (materia, estudiante)
             db.execute(queryActualizacion,valoresParaActualizar)
+            db.commit()
+            
+        except Error:
+            print(Error)
+    
+    if (formularioRemoverEstudiante.validate_on_submit()):
+        estudiante = request.form["codigoEstudianteRemueve"]
+        materia = request.form["nombreMateria"]
+        queryConsulta = "delete from alumnosmaterias where idAlumno = ? and nombreMateria LIKE ?"
+        valoresABorrar = (estudiante, materia)
+        try:
+            db = conn()
+            db.execute(queryConsulta, valoresABorrar)
             db.commit()
             
         except Error:

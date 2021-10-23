@@ -356,7 +356,7 @@ li {
     height: 25px;
 }
 
-#nombreMateriaAdministrarMateria2 {
+#nombreMateriaAdministrarMateria2, #nombreMateriaAdministrarMateria3 {
     height: 0px;
     width: 0px;
     border-color: white;

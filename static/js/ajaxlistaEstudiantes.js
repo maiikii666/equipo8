@@ -59,6 +59,7 @@ function cargarNuevaMateria(materia) {
         
         document.getElementById("nombreMateriaAdministrarMateria").textContent = dataUnicaMateria.nombre;
         document.getElementById("nombreMateriaAdministrarMateria2").value = dataUnicaMateria.nombre;
+        document.getElementById("nombreMateriaAdministrarMateria3").value = dataUnicaMateria.nombre;
         document.getElementById("nombreProfeConsultarMateria").textContent = dataUnicaMateria.nombreProfe;
         document.getElementById("listaParaLlenarEstudiantes").innerHTML ="";
 
