@@ -57,10 +57,16 @@ function cargarNuevaMateria(materia) {
     function completadoMateriaSeleccionada() {
         let dataUnicaMateria = JSON.parse(this.response);
         
-        document.getElementById("nombreMateriaAdministrarMateria").value = dataUnicaMateria.nombre;
+        document.getElementById("nombreMateriaAdministrarMateria").textContent = dataUnicaMateria.nombre;
         document.getElementById("nombreMateriaAdministrarMateria2").value = dataUnicaMateria.nombre;
         document.getElementById("nombreProfeConsultarMateria").textContent = dataUnicaMateria.nombreProfe;
-        document.getElementById("listaParaLlenarEstudiantes").innerHTML = dataUnicaMateria.estudiantes;
+        document.getElementById("listaParaLlenarEstudiantes").innerHTML ="";
+
+        for (let i=0; i < dataUnicaMateria.estudiantes.length; i++) {
+            document.getElementById("listaParaLlenarEstudiantes").innerHTML += "<li>" + dataUnicaMateria.estudiantes[i] + "</li>";
+            console.log(dataUnicaMateria.estudiantes[i])
+    
+        }
     }
 
 }

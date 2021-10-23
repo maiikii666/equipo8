@@ -43,7 +43,7 @@ def listaEstudiantes():
         estudiantes = resultadoConsulta.fetchall()
         db.commit()
         closeConn()
-        print(estudiantes)
+
 
         estudiantesJson = []
         for estudiante in estudiantes:
@@ -68,14 +68,13 @@ def listaMaterias():
         materias = resultadoConsulta.fetchall()
         db.commit()
         closeConn()
-        print(materias)
+
 
         materiasJson = []
         for materia in materias:
             materiaJson = {}
             materiaJson["nombre"] = materia[1]
             materiaJson["profesor"] = materia[2]
-            materiaJson["estudiantes"] = materia[3]
             materiasJson.append(materiaJson)
 
         return jsonify(materiasJson)
@@ -89,17 +88,23 @@ def seleccionarMateria(materia):
         db = conn()
         query = "SELECT * from materias where nombre_materia = ?"
         resultadoConsulta = db.execute(query, (materia,))
-        materia = resultadoConsulta.fetchone()
+        materiaencontrada = resultadoConsulta.fetchone()
         query = "SELECT nombre_p, apellido_p from profesores where id_profesor = ?"
-        profeABuscar = materia[2]
+        profeABuscar = materiaencontrada[2]
         nombreProfe = db.execute(query, (profeABuscar,)).fetchone()
+        query = "SELECT idAlumno from alumnosmaterias where nombreMateria = ?"
+        alumnosMatriculados = db.execute(query, (materia,)).fetchall()
+        
+        alumnosMatriculadosJson = []
+        for alumno in alumnosMatriculados:
+            alumnosMatriculadosJson.append(alumno)
         db.commit()
         closeConn()
 
         materiaJson = {}
-        materiaJson["nombre"] = materia[1]
-        materiaJson["profesor"] = materia[2]
-        materiaJson["estudiantes"] = materia[3]
+        materiaJson["nombre"] = materiaencontrada[1]
+        materiaJson["profesor"] = materiaencontrada[2]
+        materiaJson["estudiantes"] = alumnosMatriculadosJson
         materiaJson["nombreProfe"] = nombreProfe[0] + " " + nombreProfe[1]
 
         return jsonify(materiaJson)

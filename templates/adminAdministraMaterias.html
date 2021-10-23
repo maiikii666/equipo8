@@ -27,19 +27,23 @@
             <div class="contenedorMateria">
                 <div class="materia">
                     
-                    {{formularioAgregarEstudiante.nombreMateria(id="nombreMateriaAdministrarMateria", placeholder="Nombre materia")}}
-                    {{formularioRemoverEstudiante.nombreMateria(id="nombreMateriaAdministrarMateria2")}}
+                    <p id= "nombreMateriaAdministrarMateria">Nombre materia</p>
+                    
                     <div class="listaEstudiantes" id="listaParaLlenarEstudiantes">
                     </div>
-                    <div class="contenedorFormQuitaYAgrega">
-                        <form method="post">
-                        {{formularioAgregarEstudiante.codigoEstudiante(class="campoIdAgregarEstudiante")}}
+                    <div>
+                        <form method="post"class="contenedorFormQuitaYAgrega">
+                        {{formularioAgregarEstudiante.hidden_tag()}}
+                        {{formularioAgregarEstudiante.nombreMateria(id="nombreMateriaAdministrarMateria2")}}
+                        {{formularioAgregarEstudiante.codigoEstudianteAgrega(class="campoIdAgregarEstudiante")}}
                         {{formularioAgregarEstudiante.agregarEstudiante(class="botonAgregarRemoverEstudiante")}}
                         </form>
                     </div>
-                    <div class="contenedorFormQuitaYAgrega">
-                        <form method="post">
-                        {{formularioRemoverEstudiante.codigoEstudiante(class="campoIdAgregarEstudiante")}}
+                    <div>
+                        <form method="post"  class="contenedorFormQuitaYAgrega">
+                        {{formularioRemoverEstudiante.hidden_tag()}}
+                        {{formularioRemoverEstudiante.nombreMateriaRemueve(id="nombreMateriaAdministrarMateria2")}}
+                        {{formularioRemoverEstudiante.codigoEstudianteRemueve(class="campoIdAgregarEstudiante")}}
                         {{formularioRemoverEstudiante.removerEstudiante(class="botonAgregarRemoverEstudiante")}}
                         </form>
                     </div>
@@ -54,8 +58,7 @@
                     <p>Profesor</p>
                     <p id="nombreProfeConsultarMateria">Nombre Profesor</p>
                     <img src="{{url_for('static', filename='img/fofoUsuario.png')}}" alt="Imagen Profesor" class="imgPequenaProfesor">
-                    <a href=""><button class="buttonPequeño">Asignar Profesor</button></a>
-                    
+                
                 </div>
             </div>
         </div>

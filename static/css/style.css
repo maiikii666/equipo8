@@ -266,7 +266,7 @@ a .buttonPequeño {
 
 .materia {
     display: grid;
-    grid-template-rows: 2fr 0fr 4fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.1fr 0.1fr;
     margin: auto;
     background-color: white;
     max-width: 350px;
@@ -278,10 +278,10 @@ a .buttonPequeño {
 }
 
 .contenedorFormQuitaYAgrega {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     padding: 5px;
     background-color: white;
+    height: 50px;
 }
 
 .botonAgregarRemoverEstudiante{
@@ -355,6 +355,7 @@ li {
 #nombreMateriaAdministrarMateria {
     height: 25px;
 }
+
 #nombreMateriaAdministrarMateria2 {
     height: 0px;
     width: 0px;
