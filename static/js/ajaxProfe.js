@@ -47,6 +47,7 @@ function cargarNuevaMateria(materia) {
         let dataUnicaMateria = JSON.parse(this.response);
         
         document.getElementById("nombreMateriaAdministrarMateria").textContent = dataUnicaMateria.nombre;
+        document.getElementById("nombreProfeMateria").textContent = dataUnicaMateria.nombreProfe;
         document.getElementById("listaParaLlenarEstudiantesProfe").innerHTML ="";
 
         for (let i=0; i < dataUnicaMateria.estudiantes.length; i++) {

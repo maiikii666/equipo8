@@ -3,47 +3,57 @@
 {% block section %}
 
 <section class="sectionPrincipales">
+    <script src="{{url_for('static', filename='js/ajaxProfe.js')}}"></script>
 
     <h1>CREAR/EDITAR ACTIVIDADES</h1>
+    <div id="listaMaterias">
+
+    </div>
     <form action="" name="formularioEditarActividad" id="formularioEditarActividad">
 
         <div class="cajaSuperiorEditarActiv">
             <div class="contenedorDescripcionMateria">
-                <p>Nombre de Curso</p>
-                <p class="pConBorde">Fisica I</p>
-                <p>Profesor</p>
-                <p class="pConBorde">35</p>
+                <p class="pConBorde" id="nombreMateriaAdministrarMateria">Materia</p>
+                <p>Profesor:</p>
+                <p class="pConBorde" id="nombreProfeMateria"></p>
             </div>
             <div class="contenedorActividadesEditar">
                 <div></div>
-                <input type="text" name="actividadUno" placeholder="Actividad1" class="pConBorde">
-                <input type="text" name="actividadDos" placeholder="Actividad2" class="pConBorde">
-                <input type="text" name="actividadTres" placeholder="Actividad3" class="pConBorde">
-                <input type="text" name="actividadCuatro" placeholder="Actividad4" class="pConBorde">
+                <p class="pConBorde" id="editarActividad1">Actividad Vacia</p>
+                <p class="pConBorde" id="editarActividad2">Actividad Vacia</p>
+                <p class="pConBorde" id="editarActividad3">Actividad Vacia</p>
+                <p class="pConBorde" id="editarActividad4">Actividad Vacia</p>
+                <p class="pConBorde" id="editarActividad5">Actividad Vacia</p>
+                <p class="pConBorde" id="editarActividad6">Actividad Vacia</p>
+                <p class="pConBorde" id="editarActividad7">Actividad Vacia</p>
+                <p class="pConBorde" id="editarActividad8">Actividad Vacia</p>
+
             </div>
             <div class="contenedorNotasEditar">
                 <p>PORCENTAJE DE NOTA FINAL</p>
-                <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
-                <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
-                <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
-                <input type="text" name="porcentajeActividadUnoEditar" placeholder="25%" class="pConBorde">
+                <p class="pConBorde" id="porcentajeActividad1">0%</p>
+                <p class="pConBorde" id="porcentajeActividad2">0%</p>
+                <p class="pConBorde" id="porcentajeActividad3">0%</p>
+                <p class="pConBorde" id="porcentajeActividad4">0%</p>
+                <p class="pConBorde" id="porcentajeActividad5">0%</p>
+                <p class="pConBorde" id="porcentajeActividad6">0%</p>
+                <p class="pConBorde" id="porcentajeActividad7">0%</p>
+                <p class="pConBorde" id="porcentajeActividad8">0%</p>
             </div>
             <div class="contenedorVerDetallesEditar">
                 <p>Ver detalles</p>
                 <a class="imagenBlocEditar" href= ../detalleactividadProfesor> <img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                <a href=""><img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                <a href=""><img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                <a href=""><img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
-                
+                <a class="imagenBlocEditar" href= ../detalleactividadProfesor> <img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a class="imagenBlocEditar" href= ../detalleactividadProfesor> <img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a class="imagenBlocEditar" href= ../detalleactividadProfesor> <img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a class="imagenBlocEditar" href= ../detalleactividadProfesor> <img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a class="imagenBlocEditar" href= ../detalleactividadProfesor> <img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a class="imagenBlocEditar" href= ../detalleactividadProfesor> <img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
+                <a class="imagenBlocEditar" href= ../detalleactividadProfesor> <img src="{{url_for('static', filename='img/imagenBloc.png')}}" alt="imagen Detalles" class="imagenBlocEditar"></a>
+             
             </div>
         </div>
-        <div class="cajaMediaEditarActiv">
-            <input type="submit" class="buttonPequeño" value="Editar" id="botonEditarActividad">
-            <button class="buttonPequeño">+</button>
-            <p>Total</p>
-            <p class="pConBorde">100%</p>
-            <div></div>
-        </div>
+
     </form>
 
     <form action="" name="formularioCrearActividad" id="formularioCrearActividad">

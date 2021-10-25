@@ -203,9 +203,20 @@ def creareditaractiv():
 @login_required
 @login_profesor
 def creareditaractivProfesor():
+    flash(session["usuario"])
     form = FormCrearActividad()
     if (form.validate_on_submit()):
-        return ("ACTIVIDAD CREADA")
+        nombreActividad = request.form["nombreActividad"]
+        descricionActividad = request.form["descripcion"]
+        query="INSERT into actividades(nombre_actividad,descripcion) VALUES(?,?);" 
+        valoresAIngresar =(nombreActividad,descricionActividad)
+        try:
+            db = conn()
+            db.execute(query, valoresAIngresar)
+            db.commit()
+            return (url_for(creareditaractivProfesor()))
+        except Error:
+            print(Error)
         ###Debe retornar alerta de actividad creada
     return render_template("creareditaractivProfesor.html", form= form)
 
