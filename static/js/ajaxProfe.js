@@ -50,7 +50,7 @@ function cargarNuevaMateria(materia) {
         document.getElementById("listaParaLlenarEstudiantesProfe").innerHTML ="";
 
         for (let i=0; i < dataUnicaMateria.estudiantes.length; i++) {
-            document.getElementById("listaParaLlenarEstudiantesProfe").innerHTML += "<li>" + dataUnicaMateria.estudiantes[i] + "</li>";
+            document.getElementById("listaParaLlenarEstudiantesProfe").innerHTML += "<li>" +"Codigo: "+ dataUnicaMateria.estudiantes[i].codigo + " Nombre: " + dataUnicaMateria.estudiantes[i].nombre + " " + dataUnicaMateria.estudiantes[i].apellido + " Nota Final: " + dataUnicaMateria.estudiantes[i].nota + "</li>";
             console.log(dataUnicaMateria.estudiantes[i])
     
         }

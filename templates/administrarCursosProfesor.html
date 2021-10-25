@@ -16,19 +16,13 @@
     <div class="contenedorAdminCursosProfe">
         <div class="contenedorMateriaAdminCursosProfe">
             <div class="columnaUnoContMaterAdminCursosProfe">
-                <p class="pConBorde" id="nombreMateriaAdministrarMateria">Nombre de Materia</p>
+                <p class="pConBorde" id="nombreMateriaAdministrarMateria">Nombre de Materia </p>
                 <div class="listaEstudiantes" id="listaParaLlenarEstudiantesProfe">
                 </div>                      
             </div>
-            <div class="columnaDosContMaterAdminCursosProfe">
-                <p class="pConBorde">Nota Definitiva <a href= ../detalleactividadProfesor> <img class="imagenDetalleActivBloc" src="/static/img/imagenBloc.png" alt="imagen detalle"> </a> </p>
-                <p>Nota</p>
-                <p>Retroalimentación</p>
-            </div>
-
 
             <div class="estado">
-                <a href= ../creareditaractivProfesor ><button class="buttonPequeño">Crear/Editar Actividades</button></a>
+                <a href= {{url_for("main.creareditaractivProfesor")}} ><button class="buttonPequeño">Crear/Editar Actividades</button></a>
                 
             </div>
 

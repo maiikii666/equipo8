@@ -53,3 +53,7 @@ class FormRemoverEstudiantesCrearMateria(Form):
     codigoEstudianteRemueve= StringField("Codigo estudiante", validators=[DataRequired()])
     nombreMateria= StringField("Nombre materia", validators=[DataRequired()])
     removerEstudiante= SubmitField("Remover estudiante")
+
+class FormCrearActividad(Form):
+    nombreActividad = StringField("Nombre Actividad", validators=[DataRequired()])
+    

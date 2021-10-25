@@ -95,10 +95,22 @@ def seleccionarMateria(materia):
         nombreProfe = db.execute(query, (profeABuscar,)).fetchone()
         query = "SELECT idAlumno from alumnosmaterias where nombreMateria = ?"
         alumnosMatriculados = db.execute(query, (materia,)).fetchall()
-        
+                
         alumnosMatriculadosJson = []
         for alumno in alumnosMatriculados:
-            alumnosMatriculadosJson.append(alumno)
+            
+            db = conn()
+            query = "SELECT nombre, apellido from alumnos where id_alumno = ?"
+            nombreAlumno = db.execute(query, (alumno[0],)).fetchone()
+           
+            query = "SELECT notafinal from alumnosmaterias where idAlumno = ? and nombreMateria = ?"
+            nota = db.execute(query, (alumno[0], materia)).fetchone()
+            alumnoJson = {}
+            alumnoJson["codigo"] = alumno[0]
+            alumnoJson["nombre"] = nombreAlumno[0]
+            alumnoJson["apellido"] = nombreAlumno[1]
+            alumnoJson["nota"] = nota[0]
+            alumnosMatriculadosJson.append(alumnoJson)
         db.commit()
         closeConn()
 
