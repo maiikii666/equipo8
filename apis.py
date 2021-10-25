@@ -3,6 +3,7 @@ from flask import json, jsonify, blueprints
 from conn import conn, closeConn
 
 
+
 api = blueprints.Blueprint('api',__name__)
 
 
@@ -110,3 +111,40 @@ def seleccionarMateria(materia):
         return jsonify(materiaJson)
     except Error:
         print(Error)
+
+
+"""
+@api.route("/materias/<string:materia>/<string:usuario>")
+def seleccionarMateria(materia, usuario):
+    try:
+
+        db = conn()
+        query = "SELECT * from profesores where user = ?"
+        usuarioPorId = db.execute(query, (usuario,)).fetchone()
+
+        
+        query = "SELECT * from materias where nombre_materia = ?"
+        resultadoConsulta = db.execute(query, (materia,))
+        materiaencontrada = resultadoConsulta.fetchone()
+        query = "SELECT nombre_p, apellido_p from profesores where id_profesor = ?"
+        profeABuscar = materiaencontrada[2]
+        nombreProfe = db.execute(query, (profeABuscar,)).fetchone()
+        query = "SELECT idAlumno from alumnosmaterias where nombreMateria = ?"
+        alumnosMatriculados = db.execute(query, (materia,)).fetchall()
+        
+        alumnosMatriculadosJson = []
+        for alumno in alumnosMatriculados:
+            alumnosMatriculadosJson.append(alumno)
+        db.commit()
+        closeConn()
+
+        materiaJson = {}
+        materiaJson["nombre"] = materiaencontrada[1]
+        materiaJson["profesor"] = materiaencontrada[2]
+        materiaJson["estudiantes"] = alumnosMatriculadosJson
+        materiaJson["nombreProfe"] = nombreProfe[0] + " " + nombreProfe[1]
+
+        return jsonify(materiaJson)
+    except Error:
+        print(Error)
+"""

@@ -124,6 +124,7 @@ def adminAdministraMaterias():
 @login_required
 @login_profesor
 def administrarCursosProfesor():
+    flash(session["usuario"])
     return render_template("administrarCursosProfesor.html")
     
 
@@ -206,7 +207,7 @@ def creareditaractivProfesor():
     if (form.validate_on_submit()):
         return ("ACTIVIDAD CREADA")
         ###Debe retornar alerta de actividad creada
-    return render_template("creareditaractivProfesor.html",)
+    return render_template("creareditaractivProfesor.html", form= form)
 
 
 @main.route("/crearMateria/", methods=["GET", "POST"])
@@ -316,6 +317,11 @@ def notasestudiante():
 @login_estudiante
 def retroalimentacionestudiante():
     return render_template("retroalimentacionestudiante.html")
+
+@main.route("/preguntas/")
+@login_required
+def preguntas():
+    return render_template("preguntas.html")
 
 
 @main.route("/salir/")

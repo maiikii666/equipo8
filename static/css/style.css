@@ -585,13 +585,13 @@ li {
 .contenedorAdminCursosProfe {
     background-color: white;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+
 }
 
 .contenedorMateriaAdminCursosProfe {
     background-color: white;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .columnaUnoContMaterAdminCursosProfe, .columnaDosContMaterAdminCursosProfe, .columnaTresContMaterAdminCursosProfe, .columnaCuatroContMaterAdminCursosProfe {
@@ -602,6 +602,11 @@ li {
     height: 100%;
     background-color: white;
 
+}
+
+#listaParaLlenarEstudiantesProfe {
+    background-color: white;
+    max-height: 100px;
 }
 
 /*FIN administrar cursos PROFESORES*/
