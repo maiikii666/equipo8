@@ -25,6 +25,7 @@ class FormRegistrarUsuario(Form):
 class FormCrearActividad(Form):
     nombreActividad= StringField("Nombre", validators=[DataRequired()])
     descripcion= TextAreaField("Descripción", validators=[DataRequired()])
+    materia= StringField("Materia", validators=[DataRequired()])
     enviar= SubmitField("Guardar")
 
 class FormActualizar(Form):

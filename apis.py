@@ -149,3 +149,41 @@ def seleccionarMateriasPorProfe(usuario):
 
     except Error:
         print(Error)
+
+
+
+@api.route("/materiasYActividades/<string:materia>/")
+def seleccionarMateriaYActividades(materia):
+    try:
+        db = conn()
+        query = "SELECT * from materias where nombre_materia = ?"
+        resultadoConsulta = db.execute(query, (materia,))
+        materiaencontrada = resultadoConsulta.fetchone()
+        query = "SELECT nombre_p, apellido_p from profesores where id_profesor = ?"
+        profeABuscar = materiaencontrada[2]
+        nombreProfe = db.execute(query, (profeABuscar,)).fetchone()
+
+        db = conn()
+        
+        query = "SELECT * from actividades where nombreMateria = ?"
+        actividades = db.execute(query, (materia,)).fetchall()
+        actividadesJson = []
+        for actividad in actividades:
+
+            actividadJson = {}
+            actividadJson["nombreActividad"] = actividad[1]
+            actividadJson["descripcion"] = actividad[2]
+            actividadesJson.append(actividadJson)
+            
+        db.commit()
+        closeConn()
+
+        materiaJson = {}
+        materiaJson["nombre"] = materiaencontrada[1]
+        materiaJson["profesor"] = materiaencontrada[2]
+        materiaJson["actividades"] = actividadesJson
+        materiaJson["nombreProfe"] = nombreProfe[0] + " " + nombreProfe[1]
+
+        return jsonify(materiaJson)
+    except Error:
+        print(Error)

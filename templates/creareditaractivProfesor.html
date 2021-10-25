@@ -3,7 +3,7 @@
 {% block section %}
 
 <section class="sectionPrincipales">
-    <script src="{{url_for('static', filename='js/ajaxProfe.js')}}"></script>
+    <script src="{{url_for('static', filename='js/ajaxProfeActividades.js')}}"></script>
 
     <h1>CREAR/EDITAR ACTIVIDADES</h1>
     <div id="listaMaterias">
@@ -18,15 +18,15 @@
                 <p class="pConBorde" id="nombreProfeMateria"></p>
             </div>
             <div class="contenedorActividadesEditar">
-                <div></div>
-                <p class="pConBorde" id="editarActividad1">Actividad Vacia</p>
-                <p class="pConBorde" id="editarActividad2">Actividad Vacia</p>
-                <p class="pConBorde" id="editarActividad3">Actividad Vacia</p>
-                <p class="pConBorde" id="editarActividad4">Actividad Vacia</p>
-                <p class="pConBorde" id="editarActividad5">Actividad Vacia</p>
-                <p class="pConBorde" id="editarActividad6">Actividad Vacia</p>
-                <p class="pConBorde" id="editarActividad7">Actividad Vacia</p>
-                <p class="pConBorde" id="editarActividad8">Actividad Vacia</p>
+                <p>Nombre Actividad</p>
+                <p class="pConBordeTextoLargo" id="editarActividad1">Actividad Vacia</p>
+                <p class="pConBordeTextoLargo" id="editarActividad2">Actividad Vacia</p>
+                <p class="pConBordeTextoLargo" id="editarActividad3">Actividad Vacia</p>
+                <p class="pConBordeTextoLargo" id="editarActividad4">Actividad Vacia</p>
+                <p class="pConBordeTextoLargo" id="editarActividad5">Actividad Vacia</p>
+                <p class="pConBordeTextoLargo" id="editarActividad6">Actividad Vacia</p>
+                <p class="pConBordeTextoLargo" id="editarActividad7">Actividad Vacia</p>
+                <p class="pConBordeTextoLargo" id="editarActividad8">Actividad Vacia</p>
 
             </div>
             <div class="contenedorNotasEditar">
@@ -56,12 +56,14 @@
 
     </form>
 
-    <form action="" name="formularioCrearActividad" id="formularioCrearActividad">
+    <form action="" name="formularioCrearActividad" id="formularioCrearActividad", method="post">
         {{form.hidden_tag()}}
         <div class="cajaInferiorEditarActiv">
             <div class="contenedorIzquierdoCajaInferiorEditarActiv">
                 <p>Nombre de Actividad</p>
                 {{form.nombreActividad}}
+                <p>Materia Asociada</p>
+                {{form.materia}}
             </div>
             <div class="contenedorDerechoCajaInferiorEditarActiv">
                 <p>Descripción</p>

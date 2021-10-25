@@ -498,6 +498,14 @@ li {
     border-color: #9E0000;
 }
 
+.pConBordeTextoLargo {
+    border: solid;
+    border-color: #9E0000;
+    
+    padding-left: 5px;
+
+}
+
 
 /*FIN VENTANA CREAR/EDITAR ACTIVIDADES*/
 

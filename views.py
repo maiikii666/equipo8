@@ -208,13 +208,14 @@ def creareditaractivProfesor():
     if (form.validate_on_submit()):
         nombreActividad = request.form["nombreActividad"]
         descricionActividad = request.form["descripcion"]
-        query="INSERT into actividades(nombre_actividad,descripcion) VALUES(?,?);" 
-        valoresAIngresar =(nombreActividad,descricionActividad)
+        materia= request.form["materia"]
+        query="INSERT into actividades(nombre_actividad,descripcion, nombreMateria) VALUES(?,?,?);" 
+        valoresAIngresar =(nombreActividad,descricionActividad, materia)
         try:
             db = conn()
             db.execute(query, valoresAIngresar)
             db.commit()
-            return (url_for(creareditaractivProfesor()))
+
         except Error:
             print(Error)
         ###Debe retornar alerta de actividad creada
