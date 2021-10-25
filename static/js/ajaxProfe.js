@@ -11,15 +11,19 @@ function manejarError(evt) {
 
 let objXMLHTTP2= new XMLHttpRequest();
 
-let urlParaConsultaTodasMaterias = "http://127.0.0.1:5000/api/materias/"
+let idProfesor = document.getElementById("flashRolP").textContent +"/";
+let urlParaConsultaMateriasProfe = "http://127.0.0.1:5000/api/materiasPorProfe/";
+urlParaConsultaMateriasProfe += idProfesor;
 
-objXMLHTTP2.open("GET", urlParaConsultaTodasMaterias);
+
+objXMLHTTP2.open("GET", urlParaConsultaMateriasProfe);
 objXMLHTTP2.addEventListener('load', completadoMaterias);
 objXMLHTTP2.addEventListener('error', manejarError);
 objXMLHTTP2.send();
 
 
 function completadoMaterias(evt) {
+    
     let dataTodasMaterias = JSON.parse(this.response);
     for (let i=0; i < dataTodasMaterias.length; i++) {
         let materiaAConsultar=dataTodasMaterias[i].nombre

@@ -113,38 +113,27 @@ def seleccionarMateria(materia):
         print(Error)
 
 
-"""
-@api.route("/materias/<string:materia>/<string:usuario>")
-def seleccionarMateria(materia, usuario):
+
+@api.route("/materiasPorProfe/<string:usuario>/")
+def seleccionarMateriasPorProfe(usuario):
     try:
 
         db = conn()
-        query = "SELECT * from profesores where user = ?"
+        query = "SELECT id_profesor from profesores where user = ?"
         usuarioPorId = db.execute(query, (usuario,)).fetchone()
+        query = "SELECT * from materias where id_profesor = ?"
+        resultadoConsulta = db.execute(query, (usuarioPorId[0],))
+        materiasEncontradas = resultadoConsulta.fetchall()
 
-        
-        query = "SELECT * from materias where nombre_materia = ?"
-        resultadoConsulta = db.execute(query, (materia,))
-        materiaencontrada = resultadoConsulta.fetchone()
-        query = "SELECT nombre_p, apellido_p from profesores where id_profesor = ?"
-        profeABuscar = materiaencontrada[2]
-        nombreProfe = db.execute(query, (profeABuscar,)).fetchone()
-        query = "SELECT idAlumno from alumnosmaterias where nombreMateria = ?"
-        alumnosMatriculados = db.execute(query, (materia,)).fetchall()
-        
-        alumnosMatriculadosJson = []
-        for alumno in alumnosMatriculados:
-            alumnosMatriculadosJson.append(alumno)
-        db.commit()
-        closeConn()
 
-        materiaJson = {}
-        materiaJson["nombre"] = materiaencontrada[1]
-        materiaJson["profesor"] = materiaencontrada[2]
-        materiaJson["estudiantes"] = alumnosMatriculadosJson
-        materiaJson["nombreProfe"] = nombreProfe[0] + " " + nombreProfe[1]
+        materiasJson = []
+        for materia in materiasEncontradas:
+            materiaJson = {}
+            materiaJson["nombre"] = materia[1]
+            materiaJson["profesor"] = materia[2]
+            materiasJson.append(materiaJson)
 
-        return jsonify(materiaJson)
+        return jsonify(materiasJson)
+
     except Error:
         print(Error)
-"""
