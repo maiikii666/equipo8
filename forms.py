@@ -23,8 +23,6 @@ class FormRegistrarUsuario(Form):
 
 class FormCrearActividad(Form):
     nombreActividad= StringField("Nombre", validators=[DataRequired()])
-    fechaDeInicio= DateField("Inicio", validators=[DataRequired()])
-    fechaDeCierre= DateField("Cierre", validators=[DataRequired()])
     descripcion= StringField("Descripción", validators=[DataRequired()])
     enviar= SubmitField("Guardar")
 
@@ -53,7 +51,3 @@ class FormRemoverEstudiantesCrearMateria(Form):
     codigoEstudianteRemueve= StringField("Codigo estudiante", validators=[DataRequired()])
     nombreMateria= StringField("Nombre materia", validators=[DataRequired()])
     removerEstudiante= SubmitField("Remover estudiante")
-
-class FormCrearActividad(Form):
-    nombreActividad = StringField("Nombre Actividad", validators=[DataRequired()])
-    

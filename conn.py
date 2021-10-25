@@ -6,7 +6,7 @@ from flask import current_app, g
 def conn():
     try:
         if "db" not in g:
-            g.db=sqlite3.connect("../proyectoSurco/db/surcolombiana.db")
+            g.db=sqlite3.connect("db/surcolombiana.db")
             print("conectado a la DB")
     except Error:
         print(Error)
