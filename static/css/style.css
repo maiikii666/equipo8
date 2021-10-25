@@ -384,7 +384,7 @@ li {
 
 .cajaSuperiorEditarActiv {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     background-color: white;
     margin: auto;
 
