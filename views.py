@@ -256,11 +256,32 @@ def detalleActividadEstudiante():
     return render_template("detalleActividadEstudiante.html")
 
 
-@main.route("/detalleactividadProfesor/")
+@main.route("/creareditaractivProfesor/detalleactividadProfesor/<string:actividad>/", methods=["GET","POST"])
 @login_required
 @login_profesor
-def detalleactividadProfesor():
-    return render_template("detalleactividadProfesor.html")
+def detalleactividadProfesor(actividad):
+    flash(actividad)
+    form = CalificarActividad()
+    if (form.validate_on_submit()):
+        codigoEstudiante= request.form["idAlumno"]
+        nota = request.form["nota"]
+        idActividad = actividad
+        retroalimentacion = request.form["retroalimentacion"]
+        query = "insert into actividadesPorAlumnos(idAlumno,idActividad,nota,retroalimentacion)values(?,?,?,?)"
+        valoresAInsertar = (codigoEstudiante,idActividad,nota,retroalimentacion)
+        try:
+            db = conn()
+            db.execute(query, valoresAInsertar)
+            db.commit()
+        except Error:
+            print(Error)
+
+
+
+    return render_template("detalleactividadProfesor.html", form=form)
+
+
+
 
 
 @main.route("/informacionestudiante/", methods=["GET", "POST"])

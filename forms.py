@@ -1,3 +1,4 @@
+from werkzeug import datastructures
 from werkzeug.utils import validate_arguments, secure_filename
 from flask_wtf import Form
 from wtforms import StringField, PasswordField, SubmitField, RadioField
@@ -53,3 +54,9 @@ class FormRemoverEstudiantesCrearMateria(Form):
     codigoEstudianteRemueve= StringField("Codigo estudiante", validators=[DataRequired()])
     nombreMateria= StringField("Nombre materia", validators=[DataRequired()])
     removerEstudiante= SubmitField("Remover estudiante")
+
+class CalificarActividad(Form):
+    idAlumno = StringField("Código Alumno", validators=[DataRequired()])
+    nota = StringField("nota", validators=[DataRequired()])
+    retroalimentacion = TextAreaField("retroalimentación", validators=[DataRequired()])
+    guardar = SubmitField("Guardar nota")

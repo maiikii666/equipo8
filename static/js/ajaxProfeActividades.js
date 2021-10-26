@@ -54,20 +54,26 @@ function cargarNuevaMateria(materia) {
             for (let i=datosACompletar; i < 8; i++) {
                 let casillaACambiar = "editarActividad"+(i+1);
                 let casillaACambiarPorcentaje = "porcentajeActividad"+(i+1);
+                
                 document.getElementById(casillaACambiar).innerText = "Actividad Vacia";
                 document.getElementById(casillaACambiarPorcentaje).innerText = "0%";
+                
             }
         }
 
 
         for (let i=0; i < dataUnicaMateria.actividades.length; i++) {
             let textoAPoner= dataUnicaMateria.actividades[i].nombreActividad;
+            let idActividad = dataUnicaMateria.actividades[i].id;
             let casillaACambiar = "editarActividad"+(i+1);
             let casillaACambiarPorcentaje = "porcentajeActividad"+(i+1);
             let porcentaje = (100/dataUnicaMateria.actividades.length);
+            let linkACambiar = "linkHaciaDetalle"+(i+1);
+            let urlAPoner = "detalleactividadProfesor/"+idActividad;
                 
             document.getElementById(casillaACambiar).innerText = textoAPoner;
             document.getElementById(casillaACambiarPorcentaje).innerText = porcentaje + "%";
+            document.getElementById(linkACambiar).href= urlAPoner;
         }
 
     }

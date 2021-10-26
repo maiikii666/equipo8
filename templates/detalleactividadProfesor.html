@@ -3,29 +3,34 @@
 {% block section %}
 
 <section class="sectionPrincipales">
-
+    <script src="{{url_for('static', filename='js/ajaxProfeCalificaActiv.js')}}"></script>
     <h1>DETALLE DE ACTIVIDAD</h1>
-
+    
     <div class="contenedorDetalleActividad">
-
+        <form action="" method="post">
+        {{form.hidden_tag()}}
         <div class="contenedorDetalleActividadIzquierdo">
             <p>Nombre de Actividad</p>
-            <p class="pConBorde">Actividad1</p>
+            <p class="pConBordeTextoLargo" id="nombreActividad"></p>
             <p>Materia</p>
-            <p class="pConBorde">Física 1</p>
-            <p>Profesor</p>
-            <p class="pConBorde">Nombre Profesor</p>
-            <p>Fecha de Inicio</p>
-            <p class="pConBorde">13/03/2021</p>
-            <p>Fecha de Cierre</p>
-            <p class="pConBorde">05/11/2021</p>
-            <p>Correo de entrega</p>
-            <p class="pConBorde">correo@profesor.com</p>
+            <p class="pConBorde" id="materiaActividad">Física 1</p>
+                
+            <p>Código estudiante a calificar</p>
+            {{form.idAlumno}}
+            <p>Nota estudiante</p>
+            {{form.nota}}
+            <p>Retroalimentación</p>
+            {{form.retroalimentacion}}
+            {{form.guardar(class="buttonPequeño")}}
 
         </div>
+        </form>
         <div class="contenedorDetalleActividadDerecho">
-            <p>Descripción:</p>
-            <p class="pConBorde">El estudiante debe entregar módulo 1 resuelto en formato pdf al correo</p>
+            <p>Descripción actividad:</p>
+            <p class="pConBorde" id="descripcionActividad"></p>
+            <p>Estudiantes que deben presentar:</p>
+            <div class="listaEstudiantes" id="listaParaLlenarEstudiantesProfe">
+            </div>
 
         </div>
     </div>
