@@ -733,3 +733,27 @@ li {
 
 /*fin información profesores*/
 
+
+.contenedorMateriaNotasEstudiante {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+}
+
+.materianotasEstudiante {
+    display: grid;
+    margin: auto;
+    background-color: white;
+}
+
+.contenedorActividadesNotasEstudiante {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: auto;
+    background-color: white;
+}
+
+.actividadesnotasEstudiante {
+    margin: auto;
+    background-color: white;
+}

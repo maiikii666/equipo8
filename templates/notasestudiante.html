@@ -3,53 +3,58 @@
 {% block section %}
 
 <section class="sectionPrincipales">
+    <script src="{{url_for('static', filename='js/ajaxVistaEstudiantes.js')}}"></script>
 
     <h1>VER NOTAS</h1>
 
     <h1 class="buttonPequeño">MATERIAS</h1>
 
-    <div class="cajaMaterias">
-        <div class="contenedorMateria">
+    <div class="cajaNotasEstudiantes">
+        <div class="contenedorMateriaNotasEstudiante">
             
-            <div class="materia">
-                <p>FÍSICA I</p>
-                <ul class="listaEstudiantes">
-                    <li>Actividad 1</li>
-                    <li>Actividad 2</li>
-                    <li>Actividad 3</li>
-                </ul>
-                
+            <div class="materianotasEstudiante">
+                <p>Materia</p>
+                <div class="listaEstudiantes" id="listaParallenarDeMaterias">
+                </div>                 
             </div>
-            <div class="materia">
-                <p>NOTAS</p>
-                <ul class="listaEstudiantes">
-                    <li>5.0</li>
-                    <li>4.5</li>
-                    <li>4.5</li>
-                </ul>
+            <div class="materianotasEstudiante">
+                <p>Nota</p>
+                <div class="listaEstudiantes" id="listaParaLlenarNotasMateria">
+                </div> 
             </div>
-            <div class="materia">
-                <p>OBSERVACIONES</p>
-                <ul class="listaEstudiantes">
-                    <li>Entregó Tarde</li>
-                    <li>Hizo Copia</li>
-                    <li>Bien desarrollado</li>
-                </ul>
+        </div>
+
+        <div  class="contenedorActividadesNotasEstudiante">
+            <div class="actividadesnotasEstudiante">
+                <p>Materia</p>
+                <div class="listaEstudiantes" id="listaParallenarDeActividadesMaterias">
+                </div>                 
+            </div>
+            <div class="actividadesnotasEstudiante">
+                <p>Actividad</p>
+                <div class="listaEstudiantes" id="listaParallenarDeActividades">
+                </div>                 
+            </div>
+            <div class="actividadesnotasEstudiante">
+                <p>Nota</p>
+                <div class="listaEstudiantes" id="listaParallenarDeNotasActividades">
+                </div> 
+            </div>
+            <div class="actividadesnotasEstudiante">
+                <p>Retroalimentación</p>
+                <div class="listaEstudiantes" id="listaParallenarDeRetroActividades">
+                </div> 
             </div>
 
-            <div class="estado">
-                <p>Estado</p>
-                <img src="url_for('static', filename='img/candadoCerrado.png')" alt="Candado cerrado" class="imgEstadoMateria">
-                
 
-            </div>
-            <div class="profesor">
-                <p>PROMEDIO FINAL</p>
-                <p>5.0</p>
-                <p><button class="buttonPequeño">VER RETROALIMENTACIÓN FINAL</button></p>
-                
-                
-            </div>
+            
+            
+        </div>
+
+        <div class="profesor">
+            <p>PROMEDIO FINAL</p>
+            <p id="promedioFinal"></p>
+
         </div>
         
 

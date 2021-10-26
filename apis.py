@@ -113,20 +113,22 @@ def seleccionarMateria(materia):
             query = "SELECT id_actividad from actividades where nombreMateria = ?"
             dataActividades = db.execute(query, (materia,)).fetchall()
             totalActividades = len(dataActividades)
-
-            query = "SELECT nota from actividadesPorAlumnos where idAlumno = ?"
-            notasActividades = db.execute(query, (alumno[0],)).fetchall()
             total = 0
-                       
-            for nota in notasActividades:
-                total += int(nota[0])
-            notaFinal = total/totalActividades    
+            
+            for actividad in dataActividades:
+                query = "SELECT nota from actividadesPorAlumnos where idAlumno = ? and idActividad = ?"
+                notasActividades = db.execute(query, (alumno[0],actividad[0])).fetchall()
 
-            query = "update alumnosmaterias set notaFinal = ? where idAlumno = ?"
-            db.execute(query, (notaFinal, alumno[0]))
-            db.commit
+                for nota in notasActividades:
+                    total += float(nota[0])
+            if (totalActividades != 0):
+                notaFinal = total/totalActividades    
 
-            alumnoJson["nota"] = notaFinal
+                query = "update alumnosmaterias set notaFinal = ? where idAlumno = ?"
+                db.execute(query, (notaFinal, alumno[0]))
+                db.commit
+
+                alumnoJson["nota"] = notaFinal
             alumnosMatriculadosJson.append(alumnoJson)
 
 
@@ -247,3 +249,59 @@ def buscarActividad(actividad):
     except Error:
         print(Error)
 
+
+
+
+@api.route("/notasEstudiante/<string:usuarioAlumno>/")
+def notasEstudiante(usuarioAlumno):
+    try:
+        db = conn()
+        query = "select id_alumno from alumnos where user = ?"
+        infoAlumno = db.execute(query,(usuarioAlumno,)).fetchone()
+        idAlumno = infoAlumno[0]
+
+        notasAlumnoJson = {}
+
+        notasDeMaterias = []
+
+        notasDeActividades = []
+
+        query = "select * from alumnosmaterias where idAlumno = ?"
+        infoMateriasPorAlumno = db.execute(query,(idAlumno,)).fetchall()
+        for materia in infoMateriasPorAlumno:
+            materiaJson = {}
+            materiaJson["nombre"] = materia[0]
+            materiaJson["nota"] = materia[2]
+            notasDeMaterias.append(materiaJson)
+
+        query = "select * from actividadesPorAlumnos where idAlumno = ?"
+        infoActividadesALumno = db.execute(query, (idAlumno,)).fetchall()
+
+        for actividad in infoActividadesALumno:
+            actividadJson = {}
+            actividadJson["id"] = actividad[1]
+            actividadJson["nota"] = actividad[2]
+            actividadJson["retroalimentacion"] = actividad[3]
+            query = "select * from actividades where id_actividad = ?"
+            infoactividadPorId = db.execute(query, (actividad[1],)).fetchone()
+            actividadJson["nombre"] = infoactividadPorId[1]
+            actividadJson["descripcion"] = infoactividadPorId[2]
+            actividadJson["materia"] = infoactividadPorId[3]
+            notasDeActividades.append(actividadJson)
+        
+        notasAlumnoJson["materias"] =notasDeMaterias
+        notasAlumnoJson["actividades"] = notasDeActividades
+
+        promedioFinal=0
+        if notasAlumnoJson["materias"] != None:
+            totalnota=0
+            for materia in notasAlumnoJson["materias"]:
+                totalnota += float(materia["nota"])
+                promedioFinal = totalnota/len(notasAlumnoJson["materias"])
+        notasAlumnoJson["promedioFinal"] = promedioFinal
+
+
+        return jsonify(notasAlumnoJson)
+
+    except Error:
+        print(Error)

@@ -64,7 +64,7 @@ function cargarNuevaMateria(materia) {
         document.getElementById("listaParaLlenarEstudiantes").innerHTML ="";
 
         for (let i=0; i < dataUnicaMateria.estudiantes.length; i++) {
-            document.getElementById("listaParaLlenarEstudiantes").innerHTML += "<li>" + dataUnicaMateria.estudiantes[i] + "</li>";
+            document.getElementById("listaParaLlenarEstudiantes").innerHTML += "<li>" + dataUnicaMateria.estudiantes[i].codigo + " Nombre: " + dataUnicaMateria.estudiantes[i].nombre +" " + dataUnicaMateria.estudiantes[i].apellido+"</li>";
             console.log(dataUnicaMateria.estudiantes[i])
     
         }

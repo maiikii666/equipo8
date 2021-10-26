@@ -342,6 +342,7 @@ def informacionprofesores():
 @login_required
 @login_estudiante
 def notasestudiante():
+    flash(session["usuario"])
     return render_template("notasestudiante.html")
 
 
